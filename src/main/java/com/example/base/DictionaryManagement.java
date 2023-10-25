@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class DictionaryManagement {
     Scanner scan = new Scanner(System.in);
     Dictionary dic = new Dictionary();
-    public final String path = "src\\dictionary_commandline\\Dictionary.txt";
+    public final String path = "src\\main\\java\\com\\example\\base\\Dictionary.txt";
 
     public void dictionaryLookup() {
         String s;
