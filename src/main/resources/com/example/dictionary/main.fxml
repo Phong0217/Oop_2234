@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="675.0" prefWidth="892.0" stylesheets="@../Style/main.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dictionary.MainController">
+   <children>
+      <VBox prefHeight="72.0" prefWidth="71.0">
+         <children>
+            <Button contentDisplay="TOP" mnemonicParsing="false" prefHeight="76.0" prefWidth="72.0">
+               <styleClass>
+                  <String fx:value="button-favicon" />
+                  <String fx:value="text-navi-bar" />
+               </styleClass></Button>
+         </children>
+      </VBox>
+      <VBox layoutY="74.0" prefHeight="198.0" prefWidth="72.0">
+         <children>
+            <Button fx:id="searchButton" contentDisplay="TOP" mnemonicParsing="false" onAction="#showSearchPane" prefHeight="49.0" prefWidth="72.0" text="Search">
+               <styleClass>
+                  <String fx:value="text-navi-bar" />
+                  <String fx:value="button-search" />
+               </styleClass>
+            </Button>
+            <Button fx:id="translateButton" contentDisplay="TOP" mnemonicParsing="false" onAction="#showTranslatePane" prefHeight="49.0" prefWidth="72.0" text="Google">
+               <styleClass>
+                  <String fx:value="text-navi-bar" />
+                  <String fx:value="button-translate" />
+               </styleClass>
+            </Button>
+            <Button fx:id="bookmarkButton" contentDisplay="TOP" mnemonicParsing="false" onAction="#showBookmarkPane" prefHeight="49.0" prefWidth="72.0" text="Save">
+               <styleClass>
+                  <String fx:value="text-navi-bar" />
+                  <String fx:value="button-favourite" />
+               </styleClass>
+            </Button>
+            <Button fx:id="mainHistoryButton" contentDisplay="TOP" mnemonicParsing="false" onAction="#showHistoryPane" prefHeight="49.0" prefWidth="72.0" text="History">
+               <styleClass>
+                  <String fx:value="text-navi-bar" />
+                  <String fx:value="button-history" />
+               </styleClass>
+            </Button>
+         </children>
+      </VBox>
+      <VBox layoutY="625.0" prefHeight="49.0" prefWidth="72.0" styleClass="button-setting">
+         <children>
+            <Button contentDisplay="TOP" mnemonicParsing="false" prefHeight="49.0" prefWidth="72.0" text="Setting">
+               <styleClass>
+                  <String fx:value="button-setting" />
+                  <String fx:value="text-navi-bar" />
+               </styleClass></Button>
+         </children>
+      </VBox>
+      <AnchorPane prefHeight="675.0" prefWidth="892.0" />
+   </children>
+</AnchorPane>
