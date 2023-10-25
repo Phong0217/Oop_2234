@@ -4,58 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="859444d1-881e-4ef5-a57f-4f634001a1c8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/base/Spelling.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/base/VoiceRss.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/base/Word.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/dictionary/Word.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/Style/navigation.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/Style/search.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/Style/setting.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/Style/translate.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/dictionary/history.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/dictionary/main.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/dictionary/search.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/dictionary/setting.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/dictionary/translate.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/media/hover/edit.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/media/hover/favourite.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/media/hover/history.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/media/hover/remove.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/media/hover/reset.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/media/hover/save.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/media/hover/search.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/media/hover/setting.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/media/hover/speak.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/media/hover/translate.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/media/normal/arrow.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/media/normal/double-arrow.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/media/normal/edit.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/media/normal/eng-viet.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/media/normal/favicon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/media/normal/favourite.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/media/normal/history.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/media/normal/remove.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/media/normal/reset.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/media/normal/save.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/media/normal/search-bar.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/media/normal/search.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/media/normal/setting.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/media/normal/speak.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/media/normal/translate-submit.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/media/normal/translate.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/media/normal/viet-eng.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dictionary/DictionaryApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dictionary/DictionaryApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dictionary/HelloController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dictionary/HistoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dictionary/HistoryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dictionary/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dictionary/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dictionary/SearchController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dictionary/SearchController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dictionary/SettingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dictionary/SettingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dictionary/TranslateController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dictionary/TranslateController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/dictionary/hello-view.fxml" beforeDir="false" />
-    </list>
+    <list default="true" id="859444d1-881e-4ef5-a57f-4f634001a1c8" name="Changes" comment="commit views of dictionary" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -164,6 +113,7 @@
       <workItem from="1698125262510" duration="2472000" />
       <workItem from="1698129090276" duration="4540000" />
       <workItem from="1698139279170" duration="887000" />
+      <workItem from="1698198772259" duration="290000" />
     </task>
     <task id="LOCAL-00001" summary="commit project">
       <option name="closed" value="true" />
@@ -173,7 +123,15 @@
       <option name="project" value="LOCAL" />
       <updated>1697298635339</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="commit views of dictionary">
+      <option name="closed" value="true" />
+      <created>1698199023707</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1698199023707</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -204,7 +162,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="commit project" />
-    <option name="LAST_COMMIT_MESSAGE" value="commit project" />
+    <MESSAGE value="commit views of dictionary" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit views of dictionary" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
