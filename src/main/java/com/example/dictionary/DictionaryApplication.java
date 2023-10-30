@@ -10,7 +10,7 @@ import java.io.IOException;
 public class DictionaryApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(DictionaryApplication.class.getResource("translate.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(DictionaryApplication.class.getResource("main.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 840, 550);
         stage.setTitle("Library!");
         stage.setScene(scene);

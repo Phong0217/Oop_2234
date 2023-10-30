@@ -46,8 +46,8 @@
                 </HBox>
                 <HBox alignment="CENTER_LEFT" layoutX="25.0" layoutY="58.0" prefHeight="34.0" prefWidth="38.0">
                     <children>
-                        <Label fx:id="speaker1Language" styleClass="text-lang-first" text="UK" />
-                        <Button fx:id="speaker1" mnemonicParsing="false" onAction="#handleClickSpeaker1" prefHeight="30.0" prefWidth="28.0" styleClass="button-speak" textFill="#8e9297">
+                        <Label fx:id="speakerLanguage1" styleClass="text-lang-first" text="UK" />
+                        <Button fx:id="speakerUK" mnemonicParsing="false" onAction="#handleClickSpeaker1" prefHeight="30.0" prefWidth="28.0" styleClass="button-speak" textFill="#8e9297">
                             <font>
                                 <Font size="7.0" />
                             </font>
@@ -56,8 +56,8 @@
                 </HBox>
                 <HBox alignment="CENTER_LEFT" layoutX="72.0" layoutY="58.0" prefHeight="34.0" prefWidth="38.0">
                     <children>
-                        <Label fx:id="speaker2Language" styleClass="text-lang-second" text="US" />
-                        <Button fx:id="speaker2" mnemonicParsing="false" onAction="#handleClickSpeaker2" prefHeight="30.0" prefWidth="28.0" styleClass="button-speak" textFill="#8e9297">
+                        <Label fx:id="speakerLanguage2" styleClass="text-lang-second" text="US" />
+                        <Button fx:id="speakerUS" mnemonicParsing="false" onAction="#handleClickSpeaker2" prefHeight="30.0" prefWidth="28.0" styleClass="button-speak" textFill="#8e9297">
                             <font>
                                 <Font size="7.0" />
                             </font>
