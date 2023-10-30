@@ -43,11 +43,12 @@ public class DictionaryCommandline {
             System.out.println("4: Xóa 1 từ khỏi từ điển");
             System.out.println("5: Sửa 1 từ ở từ điển");
             System.out.println("6: Tìm từ chứa từ bạn nhập");
+            System.out.println("7: Hiển thị các từ đã tra");
             System.out.println("0: Exit");
             System.out.print("\nChọn chức năng: ");
             choice = scan.nextInt();
             Management.insertFromFile();
-
+            Management.exportWordFile();
             switch (choice) {
                 case 0:
                     System.out.println("Cảm ơn bạn đã sử dụng từ điển!");
@@ -70,6 +71,11 @@ public class DictionaryCommandline {
                     break;
                 case 6:
                     dictionarySeacher();
+                    break;
+                case 7:
+                    Management.getLookupWords().forEach(word -> {
+                        System.out.println(word.getWord() + "  |  " + word.getDef());
+                    });
                 default:
                     break;
             }

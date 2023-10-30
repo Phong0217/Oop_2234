@@ -2,11 +2,16 @@ package com.example.base;
 
 import java.io.*;
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class DictionaryManagement {
     Scanner scan = new Scanner(System.in);
-    Dictionary dic = new Dictionary();
+    static Dictionary dic = new Dictionary();
     public final String path = "src\\main\\java\\com\\example\\base\\Dictionary.txt";
+    public static final String pathOut = "src\\main\\java\\com\\example\\base\\DictionaryOut.txt";
+
+    // Danh sách lưu trữ các từ đã tra
+    private ArrayList<Word> lookupWords = new ArrayList<>();
 
     public void dictionaryLookup() {
         String s;
@@ -15,6 +20,8 @@ public class DictionaryManagement {
         boolean check = false;
         for (int i = 0; i < dic.words.size(); i++) {
             if (dic.words.get(i).getWord().equals(s)) {
+                Word foundWord = dic.words.get(i);
+                lookupWords.add(foundWord);     // Thêm từ đã tra vào danh sách lookupWords
                 System.out.println(s + "    |   " + dic.words.get(i).getDef());
                 check = true;
             }
@@ -22,6 +29,11 @@ public class DictionaryManagement {
         if (!check) {
             System.out.println("Không tim thấy từ này!");
         }
+    }
+
+    // Phương thức để lấy danh sách các từ đã tra
+    public ArrayList<Word> getLookupWords() {
+        return lookupWords;
     }
 
     public void addWord() {
@@ -102,5 +114,20 @@ public class DictionaryManagement {
             line = br.readLine();
         }
         br.close();
+    }
+
+    public void exportWordFile() throws IOException {
+        FileWriter fw = new FileWriter(pathOut);
+        BufferedWriter bw = new BufferedWriter(fw);
+
+        for (Word word : getLookupWords()) {
+            bw.write(word.getWord()); // Ghi từ
+            bw.newLine(); // Xuống dòng
+            bw.write(word.getDef()); // Ghi định nghĩa
+            bw.newLine(); // Xuống dòng
+        }
+
+        bw.close();
+
     }
 }
