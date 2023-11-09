@@ -53,4 +53,8 @@ public class SearchController {
 
     public void handleClickRemoveButton(ActionEvent actionEvent) {
     }
+
+    public void initSearchListView() {
+
+    }
 }

@@ -13,10 +13,11 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+
 <!--<?import javafx.scene.web.HTMLEditor?>-->
 <!--<?import javafx.scene.web.WebView?>-->
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" styleClass="second-color" stylesheets="@../Style/setting.css" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.dictionary.SettingController">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" styleClass="second-color" stylesheets="@../Style/setting.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dictionary.SettingController">
     <children>
         <VBox layoutY="9.0" prefHeight="591.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="9.0">
             <children>
@@ -24,22 +25,22 @@
                     <tabs>
                         <Tab text="Phát âm">
                             <content>
-                                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: white;">
+                                <HBox alignment="CENTER" prefHeight="515.0" prefWidth="719.0" style="-fx-background-color: white;">
                                     <children>
-                                        <VBox prefHeight="542.0" prefWidth="249.0">
+                                        <VBox prefHeight="556.0" prefWidth="801.0">
                                             <children>
-                                                <AnchorPane prefHeight="551.0" prefWidth="251.0">
+                                                <AnchorPane prefHeight="562.0" prefWidth="800.0">
                                                     <children>
-                                                        <Label layoutY="77.0" styleClass="text-label" text="Anh - Anh" />
-                                                        <Label layoutX="1.0" layoutY="167.0" styleClass="text-label" text="Anh - Mỹ" />
-                                                        <Label layoutX="1.0" layoutY="261.0" styleClass="text-label" text="Tốc độ" />
-                                                        <Slider fx:id="slider" blockIncrement="0.125" layoutX="53.0" layoutY="293.0" majorTickUnit="0.5" max="2.0" min="0.5" minorTickCount="1" showTickLabels="true" showTickMarks="true" value="1.0" />
-                                                        <ChoiceBox fx:id="choiceBoxUK" layoutX="51.0" layoutY="116.0" prefWidth="150.0" />
-                                                        <ChoiceBox fx:id="choiceBoxUS" layoutX="51.0" layoutY="207.0" prefWidth="150.0" />
-                                                        <Button ellipsisString="" layoutX="221.0" layoutY="298.0" mnemonicParsing="false" onAction="#voice" styleClass="button-speak" />
-                                                        <Button ellipsisString="" layoutX="221.0" layoutY="205.0" mnemonicParsing="false" onAction="#voiceus" styleClass="button-speak" />
-                                                        <Button ellipsisString="" layoutX="221.0" layoutY="114.0" mnemonicParsing="false" onAction="#voiceuk" styleClass="button-speak" />
-                                                        <Button layoutX="78.0" layoutY="387.0" mnemonicParsing="false" onAction="#saveVoice" styleClass="button-main" text="Lưu" />
+                                                        <Label layoutX="270.0" layoutY="128.0" styleClass="text-label" text="Anh - Anh" />
+                                                        <Label layoutX="273.0" layoutY="298.0" styleClass="text-label" text="Anh - Mỹ" />
+                                                        <Label layoutX="598.0" layoutY="20.0" prefHeight="36.0" prefWidth="60.0" styleClass="text-label" text="Tốc độ" />
+                                                        <Slider fx:id="slider" blockIncrement="0.125" layoutX="622.0" layoutY="56.0" majorTickUnit="0.5" max="2.0" min="0.5" minorTickCount="1" showTickLabels="true" showTickMarks="true" value="1.0" />
+                                                        <ChoiceBox fx:id="choiceBoxUK" layoutX="268.0" layoutY="171.0" prefWidth="150.0" />
+                                                        <ChoiceBox fx:id="choiceBoxUS" layoutX="273.0" layoutY="341.0" prefWidth="150.0" />
+                                                        <Button ellipsisString="" layoutX="743.0" layoutY="85.0" mnemonicParsing="false" onAction="#voice" styleClass="button-speak" />
+                                                        <Button ellipsisString="" layoutX="524.0" layoutY="338.0" mnemonicParsing="false" onAction="#voiceus" styleClass="button-speak" />
+                                                        <Button ellipsisString="" layoutX="524.0" layoutY="168.0" mnemonicParsing="false" onAction="#voiceuk" styleClass="button-speak" />
+                                                        <Button layoutX="658.0" layoutY="485.0" mnemonicParsing="false" onAction="#saveVoice" styleClass="button-main" text="Lưu" />
                                                     </children>
                                                 </AnchorPane>
                                             </children>
@@ -56,37 +57,31 @@
                                             <children>
                                                 <AnchorPane prefHeight="542.0" prefWidth="690.0">
                                                     <children>
-                                                        <Label layoutX="86.0" layoutY="25.0" styleClass="text-label" text="Từ điển" />
-                                                        <RadioButton fx:id="addEV" layoutX="86.0" layoutY="66.0" mnemonicParsing="false" text="Anh - Việt">
+                                                        <Label layoutX="86.0" layoutY="27.0" styleClass="text-label" text="Từ điển" />
+                                                        <RadioButton fx:id="addEV" layoutX="86.0" layoutY="95.0" mnemonicParsing="false" text="Anh - Việt">
                                                             <toggleGroup>
                                                                 <ToggleGroup fx:id="data1" />
                                                             </toggleGroup>
                                                         </RadioButton>
-                                                        <RadioButton fx:id="addVE" layoutX="227.0" layoutY="66.0" mnemonicParsing="false" text="Việt - Anh" toggleGroup="$data1">
+                                                        <RadioButton fx:id="addVE" layoutX="232.0" layoutY="95.0" mnemonicParsing="false" text="Việt - Anh" toggleGroup="$data1">
                                                         </RadioButton>
-                                                        <Label layoutX="396.0" layoutY="25.0" prefHeight="25.0" prefWidth="66.0" styleClass="text-label" text="Từ vựng" />
-                                                        <TextField fx:id="addText" layoutX="396.0" layoutY="59.0" prefHeight="35.0" prefWidth="187.0" />
-                                                        <Button ellipsisString="" layoutX="582.0" layoutY="59.0" mnemonicParsing="false" onAction="#handleClickArrow" prefHeight="35.0" styleClass="button-arrow" />
-                                                        <HBox alignment="CENTER_RIGHT" layoutX="561.0" layoutY="124.0" prefHeight="39.0" prefWidth="103.0">
-                                                            <children>
-                                                                <Button contentDisplay="CENTER" mnemonicParsing="false" onAction="#add" prefHeight="39.0" prefWidth="54.0" styleClass="button-save" textFill="#4d99f5">
+                                                        <HBox alignment="CENTER_RIGHT" layoutX="561.0" layoutY="124.0" prefHeight="39.0" prefWidth="103.0" />
+                                                        <AnchorPane layoutX="68.0" layoutY="163.0" prefHeight="373.0" prefWidth="652.0">
+                                             <children>
+                                                              <Label layoutX="28.0" layoutY="45.0" prefHeight="25.0" prefWidth="66.0" styleClass="text-label" text="Từ vựng" />
+                                                              <TextField fx:id="addText" layoutX="26.0" layoutY="81.0" prefHeight="35.0" prefWidth="187.0" />
+                                                              <Button ellipsisString="" layoutX="238.0" layoutY="81.0" mnemonicParsing="false" onAction="#handleClickArrow" prefHeight="35.0" styleClass="button-arrow" />
+                                                                <Button contentDisplay="CENTER" layoutX="560.0" layoutY="320.0" mnemonicParsing="false" onAction="#add" prefHeight="39.0" prefWidth="54.0" styleClass="button-save" textFill="#4d99f5">
                                                                     <font>
                                                                         <Font size="7.0" />
                                                                     </font>
                                                                 </Button>
-                                                                <Button contentDisplay="CENTER" mnemonicParsing="false" onAction="#addReset" prefHeight="58.0" prefWidth="57.0" styleClass="button-reset" textFill="#8e9297">
+                                                                <Button contentDisplay="CENTER" layoutX="602.0" layoutY="320.0" mnemonicParsing="false" onAction="#addReset" prefHeight="58.0" prefWidth="57.0" styleClass="button-reset" textFill="#8e9297">
                                                                     <font>
                                                                         <Font size="7.0" />
                                                                     </font>
                                                                 </Button>
-                                                            </children>
-                                                        </HBox>
-                                                        <AnchorPane layoutX="60.0" layoutY="163.0" prefHeight="335.0" prefWidth="604.0">
-<!--                                                            <children>-->
-<!--                                                                <WebView layoutX="-1.0" layoutY="-1.0" prefHeight="338.0" prefWidth="605.0" />-->
-<!--                                                                <HTMLEditor fx:id="addEditor" htmlText="&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body contenteditable=&quot;true&quot;&gt;&lt;/body&gt;&lt;/html&gt;" layoutX="-1.0" prefHeight="337.0" prefWidth="605.0" />-->
-<!--                                                            </children>-->
-                                                        </AnchorPane>
+                                             </children></AnchorPane>
                                                     </children>
                                                 </AnchorPane>
                                             </children>
@@ -111,30 +106,24 @@
                                                         </RadioButton>
                                                         <RadioButton fx:id="editVE" layoutX="227.0" layoutY="66.0" mnemonicParsing="false" onAction="#handleClickVEButton" text="Việt - Anh" toggleGroup="$data">
                                                         </RadioButton>
-                                                        <Label layoutX="396.0" layoutY="25.0" prefHeight="25.0" prefWidth="66.0" styleClass="text-label" text="Từ vựng" />
-                                                        <TextField fx:id="editTextEV" layoutX="396.0" layoutY="59.0" prefHeight="35.0" prefWidth="187.0" styleClass="text-field-edit" />
-                                                        <TextField fx:id="editTextVE" layoutX="396.0" layoutY="59.0" prefHeight="35.0" prefWidth="187.0" styleClass="text-field-edit" />
-                                                        <Button ellipsisString="" layoutX="582.0" layoutY="59.0" mnemonicParsing="false" onAction="#handleClickEditArrow" prefHeight="35.0" styleClass="button-arrow" />
-                                                        <HBox alignment="CENTER_RIGHT" layoutX="561.0" layoutY="124.0" prefHeight="39.0" prefWidth="103.0">
-                                                            <children>
-                                                                <Button contentDisplay="CENTER" mnemonicParsing="false" onAction="#save" prefHeight="39.0" prefWidth="54.0" styleClass="button-save" textFill="#4d99f5">
+                                                        <HBox alignment="CENTER_RIGHT" layoutX="561.0" layoutY="124.0" prefHeight="39.0" prefWidth="103.0" />
+                                                        <AnchorPane layoutX="46.0" layoutY="171.0" prefHeight="370.0" prefWidth="662.0">
+                                             <children>
+                                                              <Label layoutX="40.0" layoutY="15.0" prefHeight="25.0" prefWidth="66.0" styleClass="text-label" text="Từ vựng" />
+                                                              <TextField fx:id="editTextVE" layoutX="35.0" layoutY="60.0" prefHeight="35.0" prefWidth="187.0" styleClass="text-field-edit" />
+                                                              <Button ellipsisString="" layoutX="230.0" layoutY="107.0" mnemonicParsing="false" onAction="#handleClickEditArrow" prefHeight="35.0" styleClass="button-arrow" />
+                                                              <TextField fx:id="editTextEV" layoutX="35.0" layoutY="107.0" prefHeight="35.0" prefWidth="187.0" styleClass="text-field-edit" />
+                                                                <Button contentDisplay="CENTER" layoutX="555.0" layoutY="320.0" mnemonicParsing="false" onAction="#save" prefHeight="39.0" prefWidth="54.0" styleClass="button-save" textFill="#4d99f5">
                                                                     <font>
                                                                         <Font size="7.0" />
                                                                     </font>
                                                                 </Button>
-                                                                <Button contentDisplay="CENTER" mnemonicParsing="false" onAction="#remove" prefHeight="58.0" prefWidth="57.0" styleClass="button-remove" textFill="#8e9297">
+                                                                <Button contentDisplay="CENTER" layoutX="602.0" layoutY="320.0" mnemonicParsing="false" onAction="#remove" prefHeight="58.0" prefWidth="57.0" styleClass="button-remove" textFill="#8e9297">
                                                                     <font>
                                                                         <Font size="7.0" />
                                                                     </font>
                                                                 </Button>
-                                                            </children>
-                                                        </HBox>
-                                                        <AnchorPane layoutX="60.0" layoutY="163.0" prefHeight="335.0" prefWidth="604.0">
-<!--                                                            <children>-->
-<!--                                                                <WebView fx:id="web" layoutX="-1.0" layoutY="-1.0" prefHeight="338.0" prefWidth="605.0" />-->
-<!--                                                                <HTMLEditor fx:id="edit" htmlText="&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body contenteditable=&quot;true&quot;&gt;&lt;/body&gt;&lt;/html&gt;" layoutX="-1.0" prefHeight="337.0" prefWidth="605.0" />-->
-<!--                                                            </children>-->
-                                                        </AnchorPane>
+                                             </children></AnchorPane>
                                                     </children>
                                                 </AnchorPane>
                                             </children>
