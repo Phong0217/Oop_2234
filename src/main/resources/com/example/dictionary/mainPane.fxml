@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="main_form" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" styleClass="second-color" stylesheets="@../Style/search.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dictionary.MainPaneController">
+   <children>
+      <ImageView fx:id="image1" fitHeight="465.0" fitWidth="800.0" layoutX="-2.0" layoutY="69.0" pickOnBounds="true">
+         <image>
+            <Image url="@../media/hover/logoFET.png" />
+         </image>
+         <opacity>1.0</opacity>
+      </ImageView>
+      <ImageView fx:id="image2" fitHeight="465.0" fitWidth="800.0" layoutX="800.0" layoutY="68.0" pickOnBounds="true">
+         <image>
+            <Image url="@../media/hover/logoUET.png" />
+         </image>
+         <opacity>0.5</opacity>
+      </ImageView>
+      <ImageView fx:id="image3" fitHeight="465.0" fitWidth="800.0" layoutX="1600.0" layoutY="68.0" pickOnBounds="true">
+         <image>
+            <Image url="@../media/hover/logoVNU.png" />
+         </image>
+         <opacity>0.5</opacity>
+      </ImageView>
+      <ImageView fx:id="image4" fitHeight="465.0" fitWidth="800.0" layoutX="2400.0" layoutY="68.0" pickOnBounds="true">
+         <image>
+            <Image url="@../media/hover/Logo-VNU.png" />
+         </image>
+         <opacity>0.5</opacity>
+      </ImageView>
+   </children>
+</AnchorPane>
