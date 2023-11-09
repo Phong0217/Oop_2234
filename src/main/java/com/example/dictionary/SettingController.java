@@ -52,4 +52,7 @@ public class SettingController {
 
     public void remove(ActionEvent actionEvent) {
     }
+
+    public void initSettingListView() {
+    }
 }
