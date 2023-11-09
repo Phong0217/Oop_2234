@@ -12,7 +12,10 @@ public class Pronunciation {
     String speaktext;
 
     //function that makes text audible
-    public void dospeak(String speak, String voiceName) {
+    public void dospeak(String speak, String voiceName) throws EngineException {
+
+        System.setProperty("freetts.voices", "com.sun.speech.freetts.en.us.cmu_us_kal.KevinVoiceDirectory");
+        Central.registerEngineCentral("com.sun.speech.freetts.jsapi.FreeTTSEngineCentral");
 
         voiceName = "kevin16";
         //creating an object of the Voice class
@@ -39,9 +42,6 @@ public class Pronunciation {
     }
 
     public static void main(String args[]) throws EngineException {
-        System.setProperty("freetts.voices", "com.sun.speech.freetts.en.us.cmu_us_kal.KevinVoiceDirectory");
-        Central.registerEngineCentral("com.sun.speech.freetts.jsapi.FreeTTSEngineCentral");
-
         String speakText = "How are you, today ?";
         System.out.print("Speaking: "+ speakText);
         Pronunciation obj = new Pronunciation();
