@@ -1,0 +1,61 @@
+.text-field {
+
+    -fx-background-color: #E1E3E7FF;
+    -fx-background-size: 22;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: right center;
+    -fx-background-radius: 0 3 3 0;
+    -fx-border-radius: 0 3 3 0;
+    -fx-border-width: 0.5;
+    -fx-font-size: 16;
+}
+
+.text-field:focused {
+    -fx-border-color: -purple-color;
+}
+
+
+/* ======== Button ======= */
+
+.button {
+    -fx-pref-width: 35;
+    -fx-pref-height: 35;
+    -fx-padding: 0;
+}
+
+.button-save {
+    -fx-graphic: url('../hover/save.png');
+}
+
+.button-save:hover {
+    -fx-graphic: url('../hover/save.png');
+}
+
+.button-edit {
+    -fx-graphic: url('../hover/edit.png');
+}
+
+.button-edit:hover {
+    -fx-graphic: url('../hover/edit.png');
+}
+
+.button-remove {
+    -fx-graphic: url('../hover/remove.png');
+}
+
+.button-remove:hover {
+    -fx-graphic: url('../hover/remove.png');
+}
+
+
+.label-Vn {
+    -fx-graphic: url('../photo/eng-viet.png');
+}
+
+.label-Eng {
+    -fx-graphic: url('../photo/label_eng.png');
+}
+
+.label-Viet {
+    -fx-graphic: url('../photo/label_viet.png');
+}
