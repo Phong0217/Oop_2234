@@ -2,18 +2,23 @@
 
 <?import com.jfoenix.controls.JFXDrawer?>
 <?import com.jfoenix.controls.JFXHamburger?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
+<?import javafx.scene.web.HTMLEditor?>
+<?import javafx.scene.web.WebView?>
 
-<BorderPane prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #9ccede;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dictionary.MainController">
+<BorderPane prefHeight="500.0" prefWidth="905.0" style="-fx-background-color: #9ccede;" stylesheets="@../Style/manager.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dictionary.MainController">
     <top>
         <AnchorPane prefHeight="50.0" prefWidth="800.0" style="-fx-background-color: #ee4d2d;" BorderPane.alignment="CENTER">
             <Text fill="WHITE" layoutX="245.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="English - Vietnamese Dictionary Offline">
@@ -33,41 +38,58 @@
         </Pane>
     </left>
     <center>
-        <Pane prefHeight="450.0" prefWidth="500.0" BorderPane.alignment="CENTER">
-            <TextField fx:id="enWord" layoutX="50.0" layoutY="56.0" prefHeight="50.0" prefWidth="310.0" promptText="nhập từ hoặc văn bản">
-                <font>
-                    <Font name="Product Sans Bold" size="18.0" />
-                </font>
-            </TextField>
-            <TextArea fx:id="viWord" layoutX="50.0" layoutY="170.0" prefHeight="250.0" prefWidth="314.0">
-                <font>
-                    <Font name="Product Sans Bold" size="12.0" />
-                </font>
-            </TextArea>
-            <Button layoutX="103.0" layoutY="17.0" mnemonicParsing="false" onAction="#onClickSpeakerButtonEn" prefHeight="25.0" prefWidth="25.0" />
-            <ImageView disable="true" fitHeight="25.0" fitWidth="25.0" layoutX="103.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
-                <Image url="@../photo/speaker.png" />
-            </ImageView>
-            <Button layoutX="404.0" layoutY="66.0" mnemonicParsing="false" onAction="#onClickButtonTranslate" prefHeight="25.0" prefWidth="82.0" text="Translate">
-            <font>
-               <Font size="14.0" />
-            </font></Button>
-         <ImageView fitHeight="31.0" fitWidth="61.0" layoutX="57.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-               <Image url="@../photo/label_eng.png" />
-            </image>
-         </ImageView>
-         <ImageView fitHeight="38.0" fitWidth="42.0" layoutX="57.0" layoutY="123.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-               <Image url="@../photo/vietnam.png" />
-            </image>
-         </ImageView>
-         <Button layoutX="102.0" layoutY="130.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="27.0" />
-         <ImageView fitHeight="17.0" fitWidth="24.0" layoutX="105.0" layoutY="134.0" onDragDetected="#onClickSpeakerButtonVn" pickOnBounds="true" preserveRatio="true">
-            <image>
-               <Image url="@../photo/speaker.png" />
-            </image>
-         </ImageView>
+        <Pane prefHeight="450.0" prefWidth="500.0" style="-fx-background-color: #ea2cc1;" BorderPane.alignment="CENTER">
+            <children>
+                <VBox layoutX="-2.0" layoutY="-2.0" prefHeight="450.0" prefWidth="609.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <children>
+                        <HBox prefHeight="43.0" prefWidth="592.0">
+                            <children>
+                                <TextField fx:id="searchField" onKeyReleased="#searchFieldAction" prefHeight="10.0" prefWidth="139.0" promptText="nhập từ cần dịch ...">
+                                    <HBox.margin>
+
+                                        <Insets left="10.0" right="10.0" top="20.0" />
+                                    </HBox.margin>
+                                </TextField>
+                                <Button fx:id="buttonSpeak" mnemonicParsing="false" onAction="#onClickSpeakerButtonEn" prefWidth="22.0" styleClass="button-speak">
+                                    <HBox.margin>
+                                        <Insets top="20.0" />
+                                    </HBox.margin>
+                                </Button>
+                        <Button fx:id="bookmarkFalse" mnemonicParsing="false" onAction="#handleClickBookmarkButton" styleClass="button-save">
+                           <HBox.margin>
+                              <Insets left="220.0" top="20.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button fx:id="editButton" mnemonicParsing="false" onAction="#handleClickEditButton" styleClass="button-edit">
+                           <HBox.margin>
+                              <Insets top="20.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button fx:id="removeButton" mnemonicParsing="false" onAction="#onClickRemoveButton" styleClass="button-remove">
+                           <HBox.margin>
+                              <Insets top="20.0" />
+                           </HBox.margin>
+                        </Button>
+                            </children>
+                        </HBox>
+                        <HBox prefHeight="361.0" prefWidth="605.0">
+                            <children>
+                                <ListView fx:id="listView" onMouseClicked="#handleClickListView" prefHeight="361.0" prefWidth="158.0" />
+                        <AnchorPane prefHeight="361.0" prefWidth="394.0">
+                           <children>
+                               <WebView fx:id="definitionView" layoutX="4.0" layoutY="2.0" prefHeight="358.0" prefWidth="445.0" />
+                              <HTMLEditor fx:id="editDefinition" htmlText="&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body contenteditable=&quot;true&quot;&gt;&lt;/body&gt;&lt;/html&gt;" layoutX="1.0" layoutY="1.0" prefHeight="356.0" prefWidth="449.0" visible="false" />
+                           </children>
+                        </AnchorPane>
+                            </children>
+                            <VBox.margin>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                            </VBox.margin>
+                        </HBox>
+                    </children>
+                </VBox>
+            </children>
+
         </Pane>
     </center>
 </BorderPane>

@@ -15,16 +15,94 @@
 }
 
 
+.root {
+    -button-color: #747f8d;
+    -hover-button-color: #2e3338;
+
+    -purple-color: #5865F2;
+    -hover-purple-color: #4752C4;
+
+    -text-color: #555c5d;
+    -hover-text-color: #2e3338;
+
+    -gray-color: #e6e6e6;
+    -title-color: #060607;
+    -hover-background-color: #D4D7DC;
+}
+
+.first-color {
+    -fx-background-color: white;
+}
+
+.second-color {
+    -fx-background-color: #9ccede;
+}
+
+.third-color {
+    -fx-background-color: #e3e5e8;
+}
+
+.transparent-color {
+    -fx-background-color: none;
+}
+
+/* ========================= Choice Box ========================= */
+
+.choice-box .context-menu {
+    -fx-background-color: #f2f3f5;
+}
+
+.choice-box .menu-item:focused {
+    -fx-background-color: -purple-color;
+}
+
+.choice-box .menu-item > .label {
+    -fx-text-fill: -text-color;
+}
+
+.choice-box .menu-item:focused > .label {
+    -fx-text-fill: white;
+}
+
+.choice-box {
+    -fx-background-color: -gray-color;
+    -fx-mark-color: -purple-color;
+}
+
+.choice-box > .label {
+    -fx-text-fill: -hover-text-color;
+}
+
+
+/* ========================= Text ========================= */
+
+.text-label {
+    -fx-text-fill: -title-color;
+    -fx-font-size: 16;
+    -fx-font-weight: bold;
+}
+
+.text-field-edit {
+    -fx-background-image: url('../hover/search-bar.png');
+}
+
+.text-header {
+    -fx-text-fill: -title-color;
+    -fx-font-size: 12;
+    -fx-font-weight: bold;
+}
+
 /* ======== Button ======= */
 
-.button {
-    -fx-pref-width: 35;
-    -fx-pref-height: 35;
-    -fx-padding: 0;
-}
+/*.button {*/
+/*    -fx-pref-width: 35;*/
+/*    -fx-pref-height: 35;*/
+/*    -fx-padding: 0;*/
+/*}*/
 
 .button-save {
     -fx-graphic: url('../hover/save.png');
+
 }
 
 .button-save:hover {
@@ -47,6 +125,14 @@
     -fx-graphic: url('../hover/remove.png');
 }
 
+.button-speak {
+    -fx-graphic: url('../hover/speak.png');
+}
+
+.button-speak:hover {
+    -fx-graphic: url('../hover/speak.png');
+}
+
 
 .label-Vn {
     -fx-graphic: url('../photo/eng-viet.png');
@@ -56,6 +142,95 @@
     -fx-graphic: url('../photo/label_eng.png');
 }
 
+.button-arrow {
+    -fx-background-image: url('../hover/arrow.png');
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-background-size: 15;
+    -fx-background-color: -purple-color;
+    -fx-background-radius: 0 3 3 0;
+
+}
+
+.button-arrow:hover {
+    -fx-background-color: -hover-purple-color;
+}
+
 .label-Viet {
     -fx-graphic: url('../photo/label_viet.png');
+}
+
+.button-reset {
+    -fx-graphic: url('../hover/reset.png');
+}
+
+.button-reset:hover {
+    -fx-graphic: url('../hover/reset.png');
+}
+
+/* ========================= HTML Editor ========================= */
+
+.html-editor {
+    -fx-font-size: 12;
+    -fx-border-color: -purple-color;
+    -fx-border-radius: 3;
+    -fx-focus-color: transparent;
+}
+
+.html-editor .button, .html-editor .toggle-button {
+    -fx-background-color: -hover-background-color;
+}
+
+/* ========================= TabPane ========================= */
+
+.tab-pane:top .tab-header-area {
+    -fx-background-insets: 0, 0 0 1 0;
+    /*q -fx-padding: 0.416667em 0.166667em 0.0em 0.833em; /* 5 2 0 10 */
+    -fx-padding: 5 2 0 0; /* overridden as 5 2 0 0 */
+}
+
+.tab-pane .tab-header-area .tab-header-background {
+    -fx-opacity: 0;
+}
+
+/* ========================= Radio Button ========================= */
+
+.radio-button {
+    -fx-text-fill: -text-color;
+    -fx-font-size: 13;
+    -fx-font-weight: bold;
+}
+
+.radio-button:hover {
+    -fx-text-fill: -hover-text-color;
+    -fx-cursor: hand;
+}
+
+.radio-button:selected {
+    -fx-text-fill: -hover-text-color;
+}
+
+.radio-button .radio {
+    -fx-border-width: 2px;
+    -fx-border-color: -button-color;
+    -fx-background-color: white;
+    -fx-border-radius: 15px;
+    -fx-padding: 3px;
+}
+
+.radio-button:hover .radio {
+    -fx-border-color: -hover-button-color;
+}
+
+.radio-button:selected .radio {
+    -fx-border-color: -hover-button-color;
+}
+
+.radio-button .dot {
+    -fx-background-radius: 15px;
+}
+
+.radio-button:selected .dot {
+    -fx-background-color: -purple-color;
+    -fx-background-insets: 0;
 }

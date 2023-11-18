@@ -8,6 +8,7 @@ module com.example.dictionary {
     requires com.jfoenix;
     requires freetts;
     requires jsapi;
+    requires controlsfx;
 
 
     opens com.example.dictionary to javafx.fxml;

@@ -1,11 +1,16 @@
 package com.example.dictionary;
-class Word {
+public class Word implements Comparable<Word> {
     private String word;
     private String def;
 
     public Word(String word, String def) {
         this.word = word;
         this.def = def;
+    }
+
+    public Word(){
+        word = "";
+        def = "";
     }
 
     public String getWord() {
@@ -22,5 +27,9 @@ class Word {
 
     public void setDef(String def) {
         this.def = def;
+    }
+
+    public int compareTo(Word o) {
+        return this.word.compareToIgnoreCase(o.word);
     }
 }
