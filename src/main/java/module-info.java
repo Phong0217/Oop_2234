@@ -9,6 +9,7 @@ module com.example.dictionary {
     requires freetts;
     requires jsapi;
     requires controlsfx;
+    requires jlayer;
 
 
     opens com.example.dictionary to javafx.fxml;

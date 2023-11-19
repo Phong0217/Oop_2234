@@ -35,7 +35,7 @@ public class Checker {
         }
     }
 
-    public void showWarningAlert() {
+    public static void showWarningAlert() {
         Alert alert = new Alert(Alert.AlertType.WARNING);
         alert.setTitle("Thông báo");
         alert.setHeaderText(null);

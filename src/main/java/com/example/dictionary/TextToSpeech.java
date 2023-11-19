@@ -44,4 +44,14 @@ public class TextToSpeech {
             System.err.println("Error in getting voices");
         }
     }
+
+    public static void main(String[] args) {
+        // Test English to Vietnamese
+        String textEnToVi = "Hello, how are you?";
+        TextToSpeech.playSoundGoogleTranslateEnToVi(textEnToVi);
+
+        // Test Vietnamese to English
+        String textViToEn = "Xin chào, bạn khỏe không?";
+        TextToSpeech.playSoundGoogleTranslateViToEn(textViToEn);
+    }
 }
