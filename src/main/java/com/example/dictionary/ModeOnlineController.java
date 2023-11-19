@@ -112,25 +112,4 @@ public class ModeOnlineController extends DictionaryManager implements Initializ
          } else Checker.showWarningAlert();
      }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        try {
-            VBox box = (VBox) FXMLLoader.load(this.getClass().getResource("Mode.fxml"));
-            this.drawer.setSidePane(new Node[]{box});
-            HamburgerBackArrowBasicTransition transition = new HamburgerBackArrowBasicTransition(this.hamburger);
-            transition.setRate(-1.0);
-            this.hamburger.addEventHandler(MouseEvent.MOUSE_PRESSED, (e) -> {
-                transition.setRate(transition.getRate() * -1.0);
-                transition.play();
-                if (this.drawer.isOpened()) {
-                    this.drawer.close();
-                } else {
-                    this.drawer.open();
-                }
-
-            });
-        } catch (IOException e) {
-            Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, (String)null, e);
-        }
-    }
 }
