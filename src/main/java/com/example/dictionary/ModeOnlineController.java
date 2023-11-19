@@ -46,6 +46,7 @@ public class ModeOnlineController {
 
 
      public void onClickedButtonTranslate(ActionEvent event) {
+         if (Checker.internetIsConnect()) {
          String text = enWord.getText();
          if (EnToVi.isSelected()) {
              try {
@@ -60,6 +61,7 @@ public class ModeOnlineController {
                  e.printStackTrace();
              }
          }
+         } else Checker.showWarningAlert();
      }
 
 }
