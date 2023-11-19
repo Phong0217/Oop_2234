@@ -20,7 +20,7 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class ModeOnlineController implements Initializable {
+public class ModeOnlineController extends DictionaryManager implements Initializable {
     @FXML
     protected Label headText;
     @FXML
@@ -38,6 +38,34 @@ public class ModeOnlineController implements Initializable {
     public final boolean check = true;
     @FXML
     ToggleGroup toggleGroup = new ToggleGroup();
+    
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        try {
+            VBox box = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Mode.fxml")));
+            drawer.setSidePane(box);
+
+            HamburgerBackArrowBasicTransition transition = new HamburgerBackArrowBasicTransition(hamburger);
+            transition.setRate(-1);
+            hamburger.addEventHandler(MouseEvent.MOUSE_PRESSED, (e) -> {
+                transition.setRate(transition.getRate() * -1);
+                transition.play();
+
+                if (drawer.isOpened()) {
+                    drawer.close();
+                } else {
+                    drawer.open();
+                }
+                enWord.setVisible(true);
+                EnToVi.setSelected(true);
+                ViToEn.setSelected(true);
+                viWord.setVisible(true);
+
+            });
+        } catch (IOException ex) {
+            Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
 
     public void onClickSpeakerButtonEn(ActionEvent actionEvent) throws IOException {
