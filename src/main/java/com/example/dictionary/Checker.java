@@ -13,13 +13,6 @@ public class Checker {
 
     }
 
-    public static void showResult(String text) {
-        Alert alert = new Alert(AlertType.INFORMATION);
-        alert.setTitle("Kết Quả");
-        alert.setContentText(text);
-        alert.showAndWait();
-    }
-
     public static boolean internetIsConnect() {
         try {
             URL url = new URL("https://www.google.com");
