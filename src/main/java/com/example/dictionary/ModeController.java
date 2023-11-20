@@ -10,7 +10,6 @@ import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.EventObject;
 
 public class ModeController {
     @FXML
@@ -68,7 +67,16 @@ public class ModeController {
         AboutMode_stage.setScene(AboutMode_scene);
         AboutMode_stage.show();
     }
+    @FXML
+    private void onClickButtonToHangman(ActionEvent actionEvent) throws IOException {
+        Parent HangmanMode = FXMLLoader.load(getClass().getResource("SelectWords.fxml"));
+        Scene AboutMode_scene = new Scene(HangmanMode);
 
+        Stage HangmanMode_stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+
+        HangmanMode_stage.setScene(AboutMode_scene);
+        HangmanMode_stage.show();
+    }
     public ModeController() {
     }
 }
