@@ -70,11 +70,11 @@ public class ModeController {
     @FXML
     private void onClickButtonToHangman(ActionEvent actionEvent) throws IOException {
         Parent HangmanMode = FXMLLoader.load(getClass().getResource("SelectWords.fxml"));
-        Scene AboutMode_scene = new Scene(HangmanMode);
+        Scene HangmanMode_scene = new Scene(HangmanMode);
 
         Stage HangmanMode_stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
 
-        HangmanMode_stage.setScene(AboutMode_scene);
+        HangmanMode_stage.setScene(HangmanMode_scene);
         HangmanMode_stage.show();
     }
     public ModeController() {
