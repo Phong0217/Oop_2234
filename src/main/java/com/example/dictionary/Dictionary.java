@@ -45,50 +45,11 @@ public class Dictionary extends Application {
             primaryStage.setScene(scene);
             primaryStage.show();
 
-            // init components
-            initComponents(scene);
-
-            // read word list from E_V.txt
-            readData();
-
-            // load word list to the ListView
-            loadWordList();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public void initComponents(Scene scene) {
-        this.definitionView = (WebView) scene.lookup("#definitionView");
-        this.listView = (ListView<String>) scene.lookup("#listView");
-        Dictionary context = this;
-        this.listView.getSelectionModel().selectedItemProperty().addListener(
-                (observable, oldValue, newValue) -> {
-                    Word selectedWord = data.get(newValue.trim());
-                    String definition = selectedWord.getDef();
-                    context.definitionView.getEngine().loadContent(definition, "text/html");
-                }
-        );
-    }
-
-    public void loadWordList() {
-        this.listView.getItems().addAll(data.keySet());
-    }
-
-    public void readData() throws IOException {
-        FileReader fis = new FileReader(DATA_FILE_PATH);
-        BufferedReader br = new BufferedReader(fis);
-        String line;
-        while ((line = br.readLine()) != null) {
-            String[] parts = line.split(SPLITTING_CHARACTERS);
-            String word = parts[0];
-            String definition = SPLITTING_CHARACTERS + parts[1];
-            Word wordObj = new Word(word, definition);
-            data.put(word, wordObj);
-        }
-
-
-    }
 
 
 

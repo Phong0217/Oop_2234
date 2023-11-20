@@ -4,6 +4,7 @@ import com.jfoenix.controls.JFXDrawer;
 import com.jfoenix.controls.JFXHamburger;
 import com.jfoenix.transitions.hamburger.HamburgerBackArrowBasicTransition;
 import javafx.application.Application;
+import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -33,6 +34,8 @@ import java.util.logging.Logger;
 public class MainController extends DictionaryManager implements Initializable  {
     @FXML
     public Button bookmarkFalse;
+    public Button transLanguageEV;
+    public Button transLanguageVE;
     @FXML
     protected Button buttonSpeak;
     @FXML
@@ -51,8 +54,8 @@ public class MainController extends DictionaryManager implements Initializable  
     protected JFXHamburger hamburger;
     @FXML
     protected JFXDrawer drawer;
-    @FXML
-    protected TextArea viWord;
+
+    protected static boolean isEVDic;
 
     private static final String DATA_FILE_PATH = "C:\\Users\\ADMIN\\IdeaProjects\\OOP_demo\\OOP_demo\\data\\E_V.txt";
     //private static final String FXML_FILE_PATH = "./src/main/resources/com/example/dictionary/dictionary-view.fxml";
@@ -63,10 +66,13 @@ public class MainController extends DictionaryManager implements Initializable  
 
 
     public void onClickSpeakerButtonEn(ActionEvent actionEvent) throws EngineException {
-        //Speaking voice = new Speaking();
-        //Speaking.dospeak(enWord.getText());
-        Speaking voice = new Speaking();
-        voice.doSpeak(searchField.getText());
+
+        if (isEVDic) {
+            Speaking voice = new Speaking();
+            voice.doSpeak(searchField.getText());
+        } else {
+            TextToSpeech.playSoundGoogleTranslateViToEn(searchField.getText());
+        }
     }
 
 
@@ -94,25 +100,35 @@ public class MainController extends DictionaryManager implements Initializable  
         } catch (IOException ex) {
             Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
         }
+
+        for (Word temp : getCurrentDic().getVocab()) {
+            searchList.add(temp.getWord());
+        }
+        listView.setItems(searchList);
     }
 
 
     public void searchFieldAction() throws IOException {
+
         MainController context = this;
         searchWordTemp.clear();
+
         searchList.clear();
         String word = context.searchField.getText();
-        NewDictionary evDic = new NewDictionary(DATA_FILE_PATH, DATAHis_FILE_PATH);
-        int index = evDic.binaryLookup(0, evDic.getVocab().size() - 1, word, evDic.getVocab());
+
+        int index = getCurrentDic().binaryLookup(0, getCurrentDic().getVocab().size() - 1, word, getCurrentDic().getVocab());
+
         if (index < 0) {
             Spelling corrector = new Spelling("C:\\Users\\ADMIN\\IdeaProjects\\OOP_demo\\OOP_demo\\data\\spelling.txt");
             word = corrector.correct(word);
-            index = evDic.binaryLookup(0, evDic.getVocab().size() -1, word, evDic.getVocab());
+            index = getCurrentDic().binaryLookup(0, getCurrentDic().getVocab().size() -1, word, getCurrentDic().getVocab());
         }
-        updateWordInListView(word, index, evDic.getVocab(), searchWordTemp);
+        updateWordInListView(word, index, getCurrentDic().getVocab(), searchWordTemp);
         setSearchListViewItem();
 
     }
+
+
 
     private void updateWordInListView(String word, int index, ArrayList<Word> res, ArrayList<Word> des) {
         if (index < 0) {
@@ -144,8 +160,7 @@ public class MainController extends DictionaryManager implements Initializable  
         searchList.clear();
         if (searchField.getText().equals("")) {
             searchWordTemp.clear();
-            NewDictionary evDic = new NewDictionary(DATA_FILE_PATH, DATAHis_FILE_PATH);
-            searchWordTemp.addAll(evDic.getVocab());
+            searchWordTemp.addAll(getCurrentDic().getVocab());
         }
         for (Word temp : searchWordTemp) {
             searchList.add(temp.getWord());
@@ -181,40 +196,44 @@ public class MainController extends DictionaryManager implements Initializable  
         isOnEditDefinition = true;
         //saveChangeButton.setVisible(true);
         editDefinition.setVisible(true);
-        int index = Collections.binarySearch(evDic.getVocab(), new Word(spelling, null));
-        String meaning = evDic.getVocab().get(index).getDef();
+        int index = Collections.binarySearch(getCurrentDic().getVocab(), new Word(spelling, null));
+        String meaning = getCurrentDic().getVocab().get(index).getDef();
         editDefinition.setHtmlText(meaning);
+    }
+    
+
+    @FXML
+    public void showDefinition() {
+        String spelling = listView.getSelectionModel().getSelectedItem();
+        if (spelling == null) {
+            return;
+        }
+        int index = Collections.binarySearch(getCurrentDic().getVocab(), new Word(spelling, null));
+        String meaning = getCurrentDic().getVocab().get(index).getDef();
+        definitionView.getEngine().loadContent(meaning, "text/html");
+        if (Collections.binarySearch(getCurrentDic().getHistoryVocab(), new Word(spelling, null)) <= 0) {
+            getCurrentDic().addWordToFile(spelling, meaning, getCurrentDic().getHISTORY_PATH());
+        }
     }
 
     @FXML
-    protected void onClickRemoveButton(ActionEvent actionEvent) {
-        String spelling = searchField.getText();
-        if (spelling.equals("")) {
+    public void handleClickBookmarkButton(ActionEvent actionEvent) {
+        if (searchField.getText().equals("") && searchField.getText().equals("")) {
             showWarningAlert();
             return;
         }
-        ButtonType yes = new ButtonType("Có", ButtonBar.ButtonData.OK_DONE);
-
-        ButtonType no = new ButtonType("Không", ButtonBar.ButtonData.CANCEL_CLOSE);
-
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Bạn có chắc chắn muốn xoá từ này không?", yes, no);
+        if (isEVDic) {
+            evDic.modifyWord(searchField.getText(), editDefinition.getHtmlText().replace(" dir=\"ltr\"", ""));
+        } else {
+            veDic.modifyWord(searchField.getText(), editDefinition.getHtmlText().replace(" dir=\"ltr\"", ""));
+        }
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Thông báo");
         alert.setHeaderText(null);
+        alert.setContentText("Sửa từ thành công");
         alert.showAndWait();
+        showDefinition();
 
-        if (alert.getResult() == yes) {
-            evDic.removeWord(spelling, DATA_FILE_PATH, evDic.getVocab());
-            evDic.removeWord(spelling, DATAHis_FILE_PATH, evDic.getHistoryVocab());
- //           evDic.removeWord(spelling, evDic.getBOOKMARK_PATH(), evDic.getBookmarkVocab());
-//            headText.setText("Nghĩa của từ");
-            searchField.clear();
-            definitionView.getEngine().loadContent("");
-
-        }
-
-    }
-
-    public void handleClickBookmarkButton(ActionEvent actionEvent) {
     }
 
     @FXML
@@ -227,26 +246,46 @@ public class MainController extends DictionaryManager implements Initializable  
         }
         searchField.setText(spelling);
         int i = -1;
-        for (int j = 0; j < evDic.getBookmarkVocab().size(); j++) {
+        for (int j = 0; j < getCurrentDic().getBookmarkVocab().size(); j++) {
 
-            if (evDic.getBookmarkVocab().get(j).getWord().equals(spelling)) {
+            if (getCurrentDic().getBookmarkVocab().get(j).getWord().equals(spelling)) {
                 i = j;
                 break;
             }
         }
-//        if (i >= 0) {
-//            bookmarkFalse.setVisible(false);
-//            bookmarkTrue.setVisible(true);
-//        } else {
-//            bookmarkFalse.setVisible(true);
-//            bookmarkTrue.setVisible(false);
-//        }
-//        int index = Collections.binarySearch(evDic.getVocab(), new Word(spelling, null));
-//        if (isEVDic) {
-//            headText.setText(spelling);
-//        } else {
-//            String meaning = veDic.getVocab().get(index).getMeaning().substring(9, 9 + spelling.length());
-//            headText.setText(meaning);
-//        }
+    }
+    
+    @FXML
+    public void handleClickTransButton() {
+        isEVDic = !isEVDic;
+        setLanguage();
+        clearPane();
+    }
+
+    private void clearPane() {
+        searchField.clear();
+        definitionView.getEngine().loadContent("");
+        searchList.clear();
+        listView.getItems().clear();
+        for (Word temp : getCurrentDic().getVocab()) {
+            searchList.add(temp.getWord());
+        }
+        listView.setItems(searchList);
+    }
+
+    private NewDictionary getCurrentDic() {
+        if (isEVDic) return evDic;
+        else return veDic;
+    }
+
+    private void setLanguage() {
+
+        if (!isEVDic) {
+            transLanguageEV.setVisible(false);
+            transLanguageVE.setVisible(true);
+        } else {
+            transLanguageEV.setVisible(true);
+            transLanguageVE.setVisible(false);
+        }
     }
 }

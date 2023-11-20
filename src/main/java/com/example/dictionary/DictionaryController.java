@@ -14,6 +14,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.web.WebView;
 import javafx.stage.Stage;
+import javafx.concurrent.Task;
 
 import java.io.*;
 import java.util.*;
@@ -102,21 +103,65 @@ public class DictionaryController extends Application{
     private final ArrayList<Word> searchWordTemp = new ArrayList<>();
     protected final ObservableList<String> searchList = FXCollections.observableArrayList();
 
-    public void searchFieldAction() throws IOException {
-        DictionaryController context = this;
-        searchWordTemp.clear();
-        searchList.clear();
-        String word = context.searchField.getText();
-        NewDictionary evDic = new NewDictionary(DATA_FILE_PATH, DATAHis_FILE_PATH);
-        int index = evDic.binaryLookup(0, evDic.getVocab().size() - 1, word, evDic.getVocab());
-        if (index < 0) {
-            Spelling corrector = new Spelling("C:\\Users\\ADMIN\\IdeaProjects\\OOP_demo\\OOP_demo\\data\\spelling.txt");
-            word = corrector.correct(word);
-            index = evDic.binaryLookup(0, evDic.getVocab().size() -1, word, evDic.getVocab());
-        }
-        updateWordInListView(word, index, evDic.getVocab(), searchWordTemp);
-        setSearchListViewItem();
+//    public void searchFieldAction() throws IOException {
+//        DictionaryController context = this;
+//        searchWordTemp.clear();
+//        searchList.clear();
+//        String word = context.searchField.getText();
+//        NewDictionary evDic = new NewDictionary(DATA_FILE_PATH, DATAHis_FILE_PATH);
+//        int index = evDic.binaryLookup(0, evDic.getVocab().size() - 1, word, evDic.getVocab());
+//        if (index < 0) {
+//            Spelling corrector = new Spelling("C:\\Users\\ADMIN\\IdeaProjects\\OOP_demo\\OOP_demo\\data\\spelling.txt");
+//            word = corrector.correct(word);
+//            index = evDic.binaryLookup(0, evDic.getVocab().size() -1, word, evDic.getVocab());
+//        }
+//        updateWordInListView(word, index, evDic.getVocab(), searchWordTemp);
+//        setSearchListViewItem();
+//
+//    }
 
+    public void searchFieldAction() {
+
+        DictionaryController context = this;
+
+        // Create a Task for the search operation
+        Task<Void> searchTask = new Task<>() {
+            @Override
+            protected Void call() throws Exception {
+                searchWordTemp.clear();
+                searchList.clear();
+
+                String word = context.searchField.getText();
+                // Perform the search operation
+                NewDictionary evDic = new NewDictionary(DATA_FILE_PATH, DATAHis_FILE_PATH);
+                int index = evDic.binaryLookup(0, evDic.getVocab().size() - 1, word, evDic.getVocab());
+
+                if (index < 0) {
+                    Spelling corrector = new Spelling("C:\\Users\\ADMIN\\IdeaProjects\\OOP_demo\\OOP_demo\\data\\spelling.txt");
+                    word = corrector.correct(word);
+                    index = evDic.binaryLookup(0, evDic.getVocab().size() - 1, word, evDic.getVocab());
+                }
+
+                // Update searchWordTemp with the search results
+                updateWordInListView(word, index, evDic.getVocab(), searchWordTemp);
+                return null;
+            }
+        };
+
+        // Set the event handler for successful completion of the search task
+        searchTask.setOnSucceeded(event -> {
+            // Update the ListView on the JavaFX Application Thread
+            setSearchListViewItem();
+        });
+
+        // Set the event handler for any exception during the search task
+        searchTask.setOnFailed(event -> {
+            // Handle the exception if needed
+            searchTask.getException().printStackTrace();
+        });
+
+        // Run the search task in a background thread
+        new Thread(searchTask).start();
     }
 
     public void updateWordInListView(String word, int index, ArrayList<Word> res, ArrayList<Word> des) {

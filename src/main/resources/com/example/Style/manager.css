@@ -139,7 +139,7 @@
 }
 
 .label-Eng {
-    -fx-graphic: url('../photo/label_eng.png');
+    -fx-graphic: url('../photo/viet-eng.png');
 }
 
 .button-arrow {
@@ -233,4 +233,20 @@
 .radio-button:selected .dot {
     -fx-background-color: -purple-color;
     -fx-background-insets: 0;
+}
+
+.button-eng-viet {
+    -fx-graphic: url('../photo/eng-viet.png');
+    -fx-background-color: #e3e5e8;
+    -fx-background-radius: 3 0 0 3;
+    -fx-border-width: 0;
+    -fx-padding: 2;
+}
+
+.button-viet-eng {
+    -fx-graphic: url('../photo/viet-eng.png');
+    -fx-background-color: #e3e5e8;
+    -fx-background-radius: 3 0 0 3;
+    -fx-border-width: 0;
+    -fx-padding: 2;
 }

@@ -73,7 +73,7 @@
             </Label>
             <ImageView fitHeight="25.0" fitWidth="35.0" layoutX="257.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../photo/label_viet.png" />
+                    <Image url="@../photo/viet-eng.png" />
                 </image>
             </ImageView>
          <RadioButton fx:id="EnToVi" layoutX="76.0" layoutY="18.0" mnemonicParsing="false">
@@ -83,7 +83,10 @@
          </RadioButton>
          <RadioButton fx:id="ViToEn" layoutX="234.0" layoutY="18.0" mnemonicParsing="false" toggleGroup="$toggleGroup" />
          <WebView fx:id="viWord" layoutX="15.0" layoutY="170.0" prefHeight="252.0" prefWidth="349.0" />
-         <Label fx:id="headText" layoutX="15.0" layoutY="133.0" prefHeight="31.0" prefWidth="91.0" text="Nghĩa của từ" textFill="#902929" />
+         <Label fx:id="headText" layoutX="15.0" layoutY="133.0" prefHeight="31.0" prefWidth="91.0" text="Nghĩa của từ" textFill="#902929">
+            <font>
+               <Font size="16.0" />
+            </font></Label>
         </Pane>
     </center>
 </BorderPane>

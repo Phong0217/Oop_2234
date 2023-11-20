@@ -100,14 +100,17 @@ public class NewDictionary {
         if (end < start) {
             return -1;
         }
-        int mid = start + (end - start) / 2;
-        int compare = DictionaryManager.isContain(word, temp.get(mid).getWord());
-        if (compare == -1) {
-            return binaryLookup(start, mid - 1, word, temp);
-        } else if (compare == 1) {
-            return binaryLookup(mid + 1, end, word, temp);
+        int midWord = start + (end - start) / 2;
+
+        int compareWord = DictionaryManager.isContain(word, temp.get(midWord).getWord());
+
+        if (compareWord == -1) {
+            return binaryLookup(start, midWord - 1, word, temp);
+
+        } else if (compareWord == 1) {
+            return binaryLookup(midWord + 1, end, word, temp);
         } else {
-            return mid;
+            return midWord;
         }
     }
 

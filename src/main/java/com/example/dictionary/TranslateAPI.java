@@ -8,13 +8,6 @@ import java.net.URL;
 import java.net.URLEncoder;
 
 public class TranslateAPI {
-    public static String translateEnToVi(String text) throws IOException {
-            return googleTranslate("en", "vi", text);
-    }
-
-    public static String translateViToEn(String text) throws IOException {
-            return googleTranslate("vi", "en", text);
-    }
     public static String googleTranslate(String langFrom, String langTo, String text) throws IOException {
         String urlScript = "https://script.google.com/macros/s/AKfycbw1qSfs1Hvfnoi3FzGuoDWijwQW69eGcMM_iGDF7p5vu1oN_CaFqIDFmCGzBuuGCk_N/exec" +
                 "?q=" + URLEncoder.encode(text, "UTF-8") +

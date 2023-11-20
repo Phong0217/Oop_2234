@@ -257,6 +257,7 @@ public class ManagerController extends DictionaryManager implements Initializabl
                 edit.setHtmlText("");
             }
         } else {
+
             ButtonType yes = new ButtonType("Có", ButtonBar.ButtonData.OK_DONE);
             ButtonType no = new ButtonType("Không", ButtonBar.ButtonData.CANCEL_CLOSE);
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Bạn có chắc chắn muốn xoá từ này không?", yes, no);
