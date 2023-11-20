@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="280.0" prefWidth="500.0" style="-fx-background-color: yellow;" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.application.SelectDifficultyController">
+   <children>
+      <Label layoutX="145.0" layoutY="54.0" text="Please select the level of difficulty." />
+      <HBox layoutX="120.0" layoutY="146.0" prefHeight="61.0" prefWidth="254.0">
+         <children>
+            <Circle fill="DODGERBLUE" radius="27.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fill="DODGERBLUE" radius="27.0" stroke="BLACK" strokeType="INSIDE">
+               <HBox.margin>
+                  <Insets left="15.0" />
+               </HBox.margin>
+            </Circle>
+            <Circle fill="DODGERBLUE" radius="27.0" stroke="BLACK" strokeType="INSIDE">
+               <HBox.margin>
+                  <Insets left="15.0" />
+               </HBox.margin>
+            </Circle>
+            <Circle fill="DODGERBLUE" radius="27.0" stroke="BLACK" strokeType="INSIDE">
+               <HBox.margin>
+                  <Insets left="15.0" />
+               </HBox.margin>
+            </Circle>
+         </children>
+      </HBox>
+      <StackPane layoutX="51.0" layoutY="140.0" prefHeight="73.0" prefWidth="400.0">
+         <children>
+            <Label text="1">
+               <StackPane.margin>
+                  <Insets right="205.0" />
+               </StackPane.margin>
+            </Label>
+            <Label text="2">
+               <StackPane.margin>
+                  <Insets right="68.0" />
+               </StackPane.margin>
+            </Label>
+            <Label text="3">
+               <StackPane.margin>
+                  <Insets left="68.0" />
+               </StackPane.margin>
+            </Label>
+            <Label text="4">
+               <padding>
+                  <Insets left="205.0" />
+               </padding>
+            </Label>
+         </children>
+      </StackPane>
+      <HBox layoutX="136.0" layoutY="228.0" prefHeight="38.0" prefWidth="230.0">
+         <children>
+            <Button fx:id="okButton" onAction="#selectingDifficulty" prefHeight="30.0" prefWidth="90.0" text="Ok" />
+            <Button fx:id="backButton" disable="true" onAction="#handleButtonAction" prefHeight="30.0" prefWidth="90.0" text="&lt; Back" />
+            <Button fx:id="nextButton" disable="true" onAction="#handleButtonAction" prefHeight="30.0" prefWidth="90.0" text="Next &gt;" />
+         </children>
+      </HBox>
+      <HBox layoutX="51.0" layoutY="204.0" prefHeight="18.0" prefWidth="400.0">
+         <children>
+            <RadioButton fx:id="level1" mnemonicParsing="false" selected="true">
+               <HBox.margin>
+                  <Insets left="88.0" />
+               </HBox.margin>
+               <toggleGroup>
+                  <ToggleGroup fx:id="difficulty" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="level2" mnemonicParsing="false" toggleGroup="$difficulty">
+               <HBox.margin>
+                  <Insets left="45.0" />
+               </HBox.margin>
+            </RadioButton>
+            <RadioButton fx:id="level3" mnemonicParsing="false" toggleGroup="$difficulty">
+               <HBox.margin>
+                  <Insets left="45.0" />
+               </HBox.margin>
+            </RadioButton>
+            <RadioButton fx:id="level4" mnemonicParsing="false" toggleGroup="$difficulty">
+               <HBox.margin>
+                  <Insets left="45.0" />
+               </HBox.margin>
+            </RadioButton>
+         </children>
+      </HBox>
+      <Label layoutX="155.0" layoutY="14.0" text="HANGMAN ">
+         <font>
+            <Font name="SansSerif Bold" size="35.0" />
+         </font>
+      </Label>
+      <Label layoutX="13.0" layoutY="106.0" rotate="-18.4" text="Level 1 - 5 letter words." />
+      <Label layoutX="104.0" layoutY="106.0" rotate="-10.3" text="Level 2 - 6 letter words." />
+      <Label layoutX="338.0" layoutY="120.0" rotate="4.1" text="Level 4 - 8 letter words." />
+      <Label layoutX="250.0" layoutY="84.0" rotate="8.7" text="Level 3 - 7 letter words." />
+   </children>
+</AnchorPane>
