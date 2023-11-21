@@ -5,7 +5,7 @@ module com.example.dictionary {
     requires com.dlsc.formsfx;
     requires javafx.web;
     requires java.sql;
-    requires com.jfoenix;
+    requires jfoenix;
     requires freetts;
     requires jsapi;
     requires controlsfx;
@@ -14,4 +14,6 @@ module com.example.dictionary {
 
     opens com.example.dictionary to javafx.fxml;
     exports com.example.dictionary;
+    opens com.example.application to javafx.fxml;
+    exports com.example.application;
 }
