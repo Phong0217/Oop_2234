@@ -3,14 +3,6 @@ package com.example.dictionary;
 import com.jfoenix.controls.JFXDrawer;
 import com.jfoenix.controls.JFXHamburger;
 import com.jfoenix.transitions.hamburger.HamburgerBackArrowBasicTransition;
-import java.io.IOException;
-import java.net.URL;
-
-
-import java.util.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -20,8 +12,13 @@ import javafx.scene.layout.VBox;
 import javafx.scene.web.HTMLEditor;
 import javafx.scene.web.WebView;
 
-public class ManagerController extends DictionaryManager implements Initializable {
+import java.io.IOException;
+import java.net.URL;
+import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
+public class ManagerController extends DictionaryManager implements Initializable {
     public ToggleGroup data2;
     @FXML
     protected RadioButton addEV;
@@ -30,23 +27,30 @@ public class ManagerController extends DictionaryManager implements Initializabl
     @FXML
     protected RadioButton addVE;
     @FXML
-    protected TextField addText;        /*text of addition.*/
+    protected TextField addText;
     @FXML
     protected HTMLEditor addEditor;
     @FXML
     protected RadioButton editEV;
     @FXML
     protected RadioButton editVE;
-
-
+    @FXML
+    protected WebView web;
+    @FXML
+    public HTMLEditor edit;
     @FXML
     protected TextField editTextVE;
     @FXML
     protected TextField editTextEV;
+    @FXML
+    protected JFXDrawer drawer;
+
+    @FXML
+    protected JFXHamburger hamburger;
 
 
-
-
+    @FXML
+    protected Map<String, Word> data = new HashMap<>();
 
     ArrayList<String> wordVE = new ArrayList<>();
     ArrayList<String> wordEV = new ArrayList<>();
@@ -76,7 +80,7 @@ public class ManagerController extends DictionaryManager implements Initializabl
             });
             addWordListEV();
             addWordListVE();
-            editDefinition.setVisible(true);
+            edit.setVisible(true);
             editEV.setSelected(true);
             addEV.setSelected(true);
             editTextEV.setVisible(true);
@@ -101,9 +105,6 @@ public class ManagerController extends DictionaryManager implements Initializabl
         }
     }
 
-    /**
-     * method handle click Arrow button.
-     */
 
     @FXML
     public void handleClickArrow() {
@@ -121,18 +122,12 @@ public class ManagerController extends DictionaryManager implements Initializabl
         addEditor.setHtmlText("");
     }
 
-    /**
-     * method reset Web view.
-     */
     @FXML
     public void addReset() {
         addEditor.setHtmlText("<html>" + addText.getText() + " /" + addText.getText() + "/"
                 + "<ul><li><b><i> loại từ: </i></b><ul><li><font color='#cc0000'><b> Nghĩa thứ nhất: </b></font><ul></li></ul></ul></li></ul><ul><li><b><i>loại từ khác: </i></b><ul><li><font color='#cc0000'><b> Nghĩa thứ hai: </b></font></li></ul></li></ul></html>");
     }
 
-    /**
-     * method handle click Add button.
-     */
     @FXML
     void add() {
         String meaning = addEditor.getHtmlText().replace(" dir=\"ltr\"", "");
@@ -179,13 +174,10 @@ public class ManagerController extends DictionaryManager implements Initializabl
 
     }
 
-    /**
-     * method click Arrow button.
-     */
     @FXML
     public void handleClickEditArrow() {
         String a;
-        editDefinition.setVisible(true);
+        edit.setVisible(true);
         if (editEV.isSelected()) {
             a = editTextEV.getText();
         } else {
@@ -193,12 +185,10 @@ public class ManagerController extends DictionaryManager implements Initializabl
         }
         int index = Collections.binarySearch(getDictionary().getVocab(), new Word(a, null));
         String b = getDictionary().getVocab().get(index).getDef();
-        editDefinition.setHtmlText(b);
+        edit.setHtmlText(b);
     }
 
-    /**
-     * method click saveButton.
-     */
+
     @FXML
     public void save() {
         if (editTextEV.getText().equals("") && editTextVE.getText().equals("")) {
@@ -206,9 +196,9 @@ public class ManagerController extends DictionaryManager implements Initializabl
             return;
         }
         if (editEV.isSelected()) {
-            evDic.modifyWord(editTextEV.getText(), editDefinition.getHtmlText().replace(" dir=\"ltr\"", ""));
+            evDic.modifyWord(editTextEV.getText(), edit.getHtmlText().replace(" dir=\"ltr\"", ""));
         } else {
-            veDic.modifyWord(editTextVE.getText(), editDefinition.getHtmlText().replace(" dir=\"ltr\"", ""));
+            veDic.modifyWord(editTextVE.getText(), edit.getHtmlText().replace(" dir=\"ltr\"", ""));
         }
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Thông báo");
@@ -227,14 +217,10 @@ public class ManagerController extends DictionaryManager implements Initializabl
             }
             int index = Collections.binarySearch(getDictionary().getVocab(), new Word(a, null));
             String b = getDictionary().getVocab().get(index).getDef();
-        definitionView.getEngine().loadContent(b, "text/html");
+            web.getEngine().loadContent(b, "text/html");
 
     }
 
-    /**
-     * method .
-     * @return EV or VE dictionary.
-     */
     private NewDictionary getDictionary() {
         if (editEV.isSelected()) {
             return evDic;
@@ -243,9 +229,6 @@ public class ManagerController extends DictionaryManager implements Initializabl
         }
     }
 
-    /**
-     * method remove word .
-     */
     @FXML
     public void remove() {
         if (editTextEV.getText().equals("") || editTextVE.getText().equals("")) {
@@ -253,11 +236,9 @@ public class ManagerController extends DictionaryManager implements Initializabl
             return;
         }
         if (editEV.isSelected()) {
-            ButtonType yes = new ButtonType("Yes", ButtonBar.ButtonData.OK_DONE);
-            ButtonType no = new ButtonType("No", ButtonBar.ButtonData.CANCEL_CLOSE);
-
+            ButtonType yes = new ButtonType("Có", ButtonBar.ButtonData.OK_DONE);
+            ButtonType no = new ButtonType("Không", ButtonBar.ButtonData.CANCEL_CLOSE);
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Bạn có chắc chắn muốn xoá từ này không?", yes, no);
-
             alert.setTitle("Thông báo");
             alert.setHeaderText(null);
             alert.showAndWait();
@@ -265,15 +246,13 @@ public class ManagerController extends DictionaryManager implements Initializabl
             if (alert.getResult() == yes) {
                 getDictionary().removeWord(editTextEV.getText(), getDictionary().getPATH(), getDictionary().getVocab());
                 editTextEV.clear();
-                editDefinition.setHtmlText("");
+                edit.setHtmlText("");
             }
         } else {
 
             ButtonType yes = new ButtonType("Có", ButtonBar.ButtonData.OK_DONE);
             ButtonType no = new ButtonType("Không", ButtonBar.ButtonData.CANCEL_CLOSE);
-
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Bạn có chắc chắn muốn xoá từ này không?", yes, no);
-
             alert.setTitle("Thông báo");
             alert.setHeaderText(null);
             alert.showAndWait();
@@ -281,10 +260,8 @@ public class ManagerController extends DictionaryManager implements Initializabl
             if (alert.getResult() == yes) {
                 getDictionary().removeWord(editTextVE.getText(), getDictionary().getPATH(), getDictionary().getVocab());
                 editTextVE.clear();
-                editDefinition.setHtmlText("");
+                edit.setHtmlText("");
             }
         }
     }
-
-
 }

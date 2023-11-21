@@ -1,17 +1,19 @@
 package com.example.dictionary;
 
-
+import com.jfoenix.controls.JFXDrawer;
+import com.jfoenix.controls.JFXHamburger;
 import com.jfoenix.transitions.hamburger.HamburgerBackArrowBasicTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-
-import javafx.scene.control.*;
+import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
-
-import javafx.scene.control.ToggleGroup;
+import javafx.scene.web.WebView;
 
 import java.io.IOException;
 import java.net.URL;
@@ -24,9 +26,17 @@ public class ModeOnlineController extends DictionaryManager implements Initializ
     @FXML
     protected Label headText;
     @FXML
+    protected JFXHamburger hamburger;
+    @FXML
+    protected JFXDrawer drawer;
+    @FXML
     protected TextField enWord;
-
-
+    @FXML
+    protected WebView viWord;
+    @FXML
+    protected RadioButton EnToVi;
+    @FXML
+    protected RadioButton ViToEn;
     public final boolean check = true;
     @FXML
     ToggleGroup toggleGroup = new ToggleGroup();
@@ -51,7 +61,7 @@ public class ModeOnlineController extends DictionaryManager implements Initializ
                 enWord.setVisible(true);
                 EnToVi.setSelected(true);
                 ViToEn.setSelected(true);
-                definitionView.setVisible(true);
+                viWord.setVisible(true);
 
             });
         } catch (IOException ex) {
@@ -59,11 +69,8 @@ public class ModeOnlineController extends DictionaryManager implements Initializ
         }
     }
 
-    /**
-     * method speak button.
-     * @throws IOException .
-     */
-    public void onClickSpeakerButtonEn() throws IOException {
+
+    public void onClickSpeakerButtonEn(ActionEvent actionEvent) throws IOException {
         String text = enWord.getText();
         if (EnToVi.isSelected()) {
             //String source = TranslateAPI.googleTranslate("en", "vi", text);
@@ -93,18 +100,19 @@ public class ModeOnlineController extends DictionaryManager implements Initializ
          String text = enWord.getText();
          if (EnToVi.isSelected()) {
              try {
-                 definitionView.getEngine().loadContent(TranslateAPI.googleTranslate("en", "vi", text));
+                 viWord.getEngine().loadContent(TranslateAPI.googleTranslate("en", "vi", text));
              } catch (IOException e) {
                  e.printStackTrace();
              }
          } else {
              try {
-                 definitionView.getEngine().loadContent(TranslateAPI.googleTranslate("vi", "en", text));
+                 viWord.getEngine().loadContent(TranslateAPI.googleTranslate("vi", "en", text));
              } catch (IOException e) {
                  e.printStackTrace();
              }
          }
          } else Checker.showWarningAlert();
      }
+
 
 }

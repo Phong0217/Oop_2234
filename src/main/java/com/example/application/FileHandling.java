@@ -6,10 +6,10 @@ import java.util.*;
 public class FileHandling {
 	
 	// locating files on laptop
-	static File file1 = new File("C:\\Users\\ADMIN\\IdeaProjects\\OOP_demo\\OOP_demo\\data\\file1.txt");
-	static File file2 = new File("C:\\Users\\ADMIN\\IdeaProjects\\OOP_demo\\OOP_demo\\data\\file2.txt");
-	static File file3 = new File("C:\\Users\\ADMIN\\IdeaProjects\\OOP_demo\\OOP_demo\\data\\file3.txt");
-	static File file4 = new File("C:\\Users\\ADMIN\\IdeaProjects\\OOP_demo\\OOP_demo\\data\\file4.txt");
+	static File file1 = new File("src\\main\\resources\\com\\example\\dataGame\\file1.txt");
+	static File file2 = new File("src\\main\\resources\\com\\example\\dataGame\\file2.txt");
+	static File file3 = new File("src\\main\\resources\\com\\example\\dataGame\\file3.txt");
+	static File file4 = new File("src\\main\\resources\\com\\example\\dataGame\\file4.txt");
 
 	// variables which contain the words
 	static ArrayList<String> wordsInF1 = new ArrayList<String>();

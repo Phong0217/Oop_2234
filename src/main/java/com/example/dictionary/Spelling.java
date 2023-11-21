@@ -76,7 +76,7 @@ public class Spelling {
 
     public static void main(String args[]) throws IOException {
         String word = "SPELLLLING";
-        Spelling corrector = new Spelling("C:\\Users\\ADMIN\\IdeaProjects\\OOP_demo\\OOP_demo\\data\\spelling.txt");
+        Spelling corrector = new Spelling("OOP_demo\\data\\spelling.txt");
         System.out.println(corrector.correct(word.toLowerCase()));
     }
 }
