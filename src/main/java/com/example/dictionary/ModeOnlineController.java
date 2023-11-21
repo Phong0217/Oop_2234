@@ -7,12 +7,13 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.control.*;
+import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.scene.web.WebView;
-import javafx.scene.control.ToggleGroup;
 
 import java.io.IOException;
 import java.net.URL;
@@ -112,5 +113,6 @@ public class ModeOnlineController extends DictionaryManager implements Initializ
          }
          } else Checker.showWarningAlert();
      }
+
 
 }
