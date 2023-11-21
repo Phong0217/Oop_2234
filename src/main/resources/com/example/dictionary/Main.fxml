@@ -18,7 +18,7 @@
 <?import javafx.scene.web.HTMLEditor?>
 <?import javafx.scene.web.WebView?>
 
-<BorderPane prefHeight="500.0" prefWidth="905.0" style="-fx-background-color: #9ccede;" stylesheets="@../Style/manager.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dictionary.MainController">
+<BorderPane prefHeight="500.0" prefWidth="905.0" style="-fx-background-color: #9ccede;" stylesheets="@../Style/manager.css" xmlns="http://javafx.com/javafx/18.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dictionary.MainController">
     <top>
         <AnchorPane prefHeight="50.0" prefWidth="800.0" style="-fx-background-color: #ee4d2d;" BorderPane.alignment="CENTER">
             <Text fill="WHITE" layoutX="245.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="English - Vietnamese Dictionary Offline">
