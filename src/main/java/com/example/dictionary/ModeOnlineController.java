@@ -1,17 +1,16 @@
 package com.example.dictionary;
 
-import com.jfoenix.controls.JFXDrawer;
-import com.jfoenix.controls.JFXHamburger;
+
 import com.jfoenix.transitions.hamburger.HamburgerBackArrowBasicTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
+
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
-import javafx.scene.web.WebView;
+
 import javafx.scene.control.ToggleGroup;
 
 import java.io.IOException;
@@ -25,17 +24,9 @@ public class ModeOnlineController extends DictionaryManager implements Initializ
     @FXML
     protected Label headText;
     @FXML
-    protected JFXHamburger hamburger;
-    @FXML
-    protected JFXDrawer drawer;
-    @FXML
     protected TextField enWord;
-    @FXML
-    protected WebView viWord;
-    @FXML
-    protected RadioButton EnToVi;
-    @FXML
-    protected RadioButton ViToEn;
+
+
     public final boolean check = true;
     @FXML
     ToggleGroup toggleGroup = new ToggleGroup();
@@ -60,7 +51,7 @@ public class ModeOnlineController extends DictionaryManager implements Initializ
                 enWord.setVisible(true);
                 EnToVi.setSelected(true);
                 ViToEn.setSelected(true);
-                viWord.setVisible(true);
+                definitionView.setVisible(true);
 
             });
         } catch (IOException ex) {
@@ -68,8 +59,11 @@ public class ModeOnlineController extends DictionaryManager implements Initializ
         }
     }
 
-
-    public void onClickSpeakerButtonEn(ActionEvent actionEvent) throws IOException {
+    /**
+     * method speak button.
+     * @throws IOException .
+     */
+    public void onClickSpeakerButtonEn() throws IOException {
         String text = enWord.getText();
         if (EnToVi.isSelected()) {
             //String source = TranslateAPI.googleTranslate("en", "vi", text);
@@ -99,13 +93,13 @@ public class ModeOnlineController extends DictionaryManager implements Initializ
          String text = enWord.getText();
          if (EnToVi.isSelected()) {
              try {
-                 viWord.getEngine().loadContent(TranslateAPI.googleTranslate("en", "vi", text));
+                 definitionView.getEngine().loadContent(TranslateAPI.googleTranslate("en", "vi", text));
              } catch (IOException e) {
                  e.printStackTrace();
              }
          } else {
              try {
-                 viWord.getEngine().loadContent(TranslateAPI.googleTranslate("vi", "en", text));
+                 definitionView.getEngine().loadContent(TranslateAPI.googleTranslate("vi", "en", text));
              } catch (IOException e) {
                  e.printStackTrace();
              }

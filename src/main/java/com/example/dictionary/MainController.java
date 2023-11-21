@@ -34,35 +34,20 @@ import java.util.logging.Logger;
 public class MainController extends DictionaryManager implements Initializable  {
     @FXML
     public Button bookmarkFalse;
+    @FXML
     public Button transLanguageEV;
+    @FXML
     public Button transLanguageVE;
     @FXML
     protected Button buttonSpeak;
     @FXML
     protected Button editButton;
-    @FXML
-    protected HTMLEditor editDefinition;
-    @FXML
-    protected ListView<String> listView;
-    @FXML
-    protected WebView definitionView;
-    @FXML
-    protected TextField searchField;
-    @FXML
-    protected JFXHamburger hamburger;
-    @FXML
-    protected JFXDrawer drawer;
-
-    protected static boolean isEVDic;
-
-    private static final String DATA_FILE_PATH = "C:\\Users\\ADMIN\\IdeaProjects\\OOP_demo\\OOP_demo\\data\\E_V.txt";
-    //private static final String FXML_FILE_PATH = "./src/main/resources/com/example/dictionary/dictionary-view.fxml";
-    private static final String DATAHis_FILE_PATH = "C:\\Users\\ADMIN\\IdeaProjects\\OOP_demo\\OOP_demo\\data\\RecentList.txt";
-    private static final String SPLITTING_CHARACTERS = "<html>";
-
-    NewDictionary evDic = new NewDictionary(DATA_FILE_PATH, DATAHis_FILE_PATH);
 
 
+
+    /*
+    method click button Speak.
+     */
     public void onClickSpeakerButtonEn(ActionEvent actionEvent) throws EngineException {
 
         if (isEVDic) {
@@ -106,6 +91,9 @@ public class MainController extends DictionaryManager implements Initializable  
     }
 
 
+    /*
+    method xử lý sự kiện khi search từ.
+     */
     public void searchFieldAction() throws IOException {
 
         MainController context = this;
@@ -127,7 +115,9 @@ public class MainController extends DictionaryManager implements Initializable  
     }
 
 
-
+    /*
+    method update list view when search words.
+     */
     private void updateWordInListView(String word, int index, ArrayList<Word> res, ArrayList<Word> des) {
         if (index < 0) {
             return;
@@ -154,6 +144,9 @@ public class MainController extends DictionaryManager implements Initializable  
         }
     }
 
+    /*
+    method set text for searchField when user clicks a word in listview.
+     */
     private void setSearchListViewItem() {
         searchList.clear();
 
@@ -168,18 +161,9 @@ public class MainController extends DictionaryManager implements Initializable  
         listView.setItems(searchList);
     }
 
-
-    protected boolean isOnEditDefinition = false;
-
-
-    public void showWarningAlert() {
-        Alert alert = new Alert(Alert.AlertType.WARNING);
-        alert.setTitle("Thông báo");
-        alert.setHeaderText(null);
-        alert.setContentText("Không có từ nào được chọn!");
-        alert.showAndWait();
-    }
-
+    /*
+    method handle when user click edit button.
+     */
     @FXML
     protected void handleClickEditButton(ActionEvent actionEvent) {
         String spelling = searchField.getText();
@@ -201,7 +185,9 @@ public class MainController extends DictionaryManager implements Initializable  
         editDefinition.setHtmlText(meaning);
     }
     
-
+    /*
+    method show mean of word to webView.
+     */
     @FXML
     public void showDefinition() {
 
@@ -217,6 +203,9 @@ public class MainController extends DictionaryManager implements Initializable  
         }
     }
 
+    /*
+    method handle when user click save button.
+     */
     @FXML
     public void handleClickBookmarkButton(ActionEvent actionEvent) {
         if (searchField.getText().equals("") && searchField.getText().equals("")) {
@@ -237,6 +226,9 @@ public class MainController extends DictionaryManager implements Initializable  
 
     }
 
+    /*
+    method handle when user click word of list view.
+     */
     @FXML
     public void handleClickListView(MouseEvent mouseEvent) {
 
@@ -255,7 +247,10 @@ public class MainController extends DictionaryManager implements Initializable  
             }
         }
     }
-    
+
+    /**
+     * method clich button switch EV or VE dictionary.
+     */
     @FXML
     public void handleClickTransButton() {
         isEVDic = !isEVDic;
@@ -279,6 +274,9 @@ public class MainController extends DictionaryManager implements Initializable  
         else return veDic;
     }
 
+    /**
+     * method set user choose language for their library .
+     */
     private void setLanguage() {
 
         if (!isEVDic) {

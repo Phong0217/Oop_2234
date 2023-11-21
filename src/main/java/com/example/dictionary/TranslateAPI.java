@@ -25,4 +25,14 @@ public class TranslateAPI {
         in.close();
         return response.toString();
     }
+
+    public static void main(String[] args) throws IOException {
+        // Test English to Vietnamese
+        String textEnToVi = "Hello, how are you?";
+        String textTran = googleTranslate("en", "vi", textEnToVi);
+        System.out.print(textTran);
+    }
+
+
+
 }

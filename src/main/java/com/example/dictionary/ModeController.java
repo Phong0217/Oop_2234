@@ -24,6 +24,11 @@ public class ModeController {
     @FXML
     protected Button About;
 
+    /**
+     * method show pane Main.Fxml.
+     * @param actionEvent  .
+     * @throws IOException .
+     */
     @FXML
     private void onClickButtonToHome(ActionEvent actionEvent) throws IOException {
         Parent HomePage = FXMLLoader.load(getClass().getResource("Main.fxml"));
@@ -34,7 +39,11 @@ public class ModeController {
         HomePage_stage.setScene(HomePage_scene);
         HomePage_stage.show();
     }
-
+    /**
+     * method show pane ModeOnline.fxml.
+     * @param actionEvent  .
+     * @throws IOException .
+     */
     @FXML
     private void onClickButtonToOnline(ActionEvent actionEvent) throws IOException {
         Parent OnlineMode = FXMLLoader.load(getClass().getResource("ModeOnline.fxml"));
@@ -45,7 +54,11 @@ public class ModeController {
         OnlineMode_stage.setScene(OnlineMode_scene);
         OnlineMode_stage.show();
     }
-
+    /**
+     * method show pane Manager.fxml.
+     * @param actionEvent  .
+     * @throws IOException .
+     */
     @FXML
     private void onClickButtonToManageWord(ActionEvent actionEvent) throws IOException {
         Parent ManageWordMode = FXMLLoader.load(getClass().getResource("Manager.fxml"));
@@ -56,7 +69,11 @@ public class ModeController {
         ManageWordMode_stage.setScene(ManageWordMode_scene);
         ManageWordMode_stage.show();
     }
-
+    /**
+     * method show pane About.fxml.
+     * @param actionEvent  .
+     * @throws IOException .
+     */
     @FXML
     private void onClickButtonToAbout(ActionEvent actionEvent) throws IOException {
         Parent AboutMode = FXMLLoader.load(getClass().getResource("About.fxml"));
@@ -67,6 +84,11 @@ public class ModeController {
         AboutMode_stage.setScene(AboutMode_scene);
         AboutMode_stage.show();
     }
+    /**
+     * method show pane SelectWords.fxml.
+     * @param actionEvent  .
+     * @throws IOException .
+     */
     @FXML
     private void onClickButtonToHangman(ActionEvent actionEvent) throws IOException {
         Parent HangmanMode = FXMLLoader.load(getClass().getResource("SelectWords.fxml"));
