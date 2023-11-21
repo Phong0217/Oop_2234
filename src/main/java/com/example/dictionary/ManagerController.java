@@ -72,7 +72,9 @@ public class ManagerController extends DictionaryManager implements Initializabl
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
+
             VBox box = FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("Mode.fxml")));
+
             this.drawer.setSidePane(box);
             HamburgerBackArrowBasicTransition transition = new HamburgerBackArrowBasicTransition(this.hamburger);
             transition.setRate(-1.0);

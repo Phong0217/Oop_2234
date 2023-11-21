@@ -160,7 +160,7 @@ public class GameController {
 	private ArrayList<String> temp2 = new ArrayList<String>(); //alphabet
 	private ArrayList<String> temp3 = new ArrayList<String>(); //incorrect input
 
-	static GameHandler newGame; // GameHandler object created in
+	public static GameHandler newGame; // GameHandler object created in
 								// SelectWordsController
 
 	public void storeInArray() {
@@ -413,7 +413,7 @@ public class GameController {
 			// get reference to the button's stage
 			secondaryStage = (Stage) backButton.getScene().getWindow();
 			// load up FXML document
-			root2 = FXMLLoader.load(getClass().getResource("../../../../resources/com/example/dictionary/SelectDifficulty.fxml"));
+			root2 = FXMLLoader.load(getClass().getResource("/com/example/dictionary/SelectDifficulty.fxml"));
 			// create a new scene with root and set the stage
 			Scene scene2 = new Scene(root2);
 			secondaryStage.setScene(scene2);
@@ -431,7 +431,7 @@ public class GameController {
 			// get reference to the button's stage
 			secondaryStage = (Stage) backButton.getScene().getWindow();
 			// load up FXML document
-			root2 = FXMLLoader.load(getClass().getResource("../../../../resources/com/example/dictionary/SelectWords.fxml"));
+			root2 = FXMLLoader.load(getClass().getResource("/com/example/dictionary/SelectWords.fxml"));
 			// create a new scene with root and set the stage
 			Scene scene2 = new Scene(root2);
 			secondaryStage.setScene(scene2);

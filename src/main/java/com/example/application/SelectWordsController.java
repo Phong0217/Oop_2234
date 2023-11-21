@@ -11,11 +11,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class SelectWordsController implements Initializable {
@@ -73,18 +75,30 @@ public class SelectWordsController implements Initializable {
 	}
 
 	@FXML
-	private void handleButtonAction(ActionEvent event) throws IOException {
-		Stage secondaryStage;
-		Parent root2;
+	private void handleButtonAction() throws IOException {
+		try {
+//			FXMLLoader fxmlLoader = new FXMLLoader();
+//			Stage secondaryStage = (Stage) nextButton.getScene().getWindow();
+//			Parent root2 = fxmlLoader.load(Objects.requireNonNull(getClass().getResource("SelectDifficulty.fxml")));
+//
+//			Scene scene2 = new Scene(root2);
+//			secondaryStage.setScene(scene2);
+//			secondaryStage.show();
+			Stage primaryStage = (Stage) nextButton.getScene().getWindow();
+			FXMLLoader fxmlLoader = new FXMLLoader();
 
-		// get reference to the button's stage
-		secondaryStage = (Stage) nextButton.getScene().getWindow();
-		// load up FXML document
-		root2 = FXMLLoader.load(getClass().getResource("../../../../resources/com/example/dictionary/SelectDifficulty.fxml"));
-		// create a new scene with root and set the stage
-		Scene scene2 = new Scene(root2);
-		secondaryStage.setScene(scene2);
-		secondaryStage.show();
+			// Load the FXML file using a relative path
+			// Make sure the FXML file is in the correct location relative to your classpath
+			AnchorPane root = fxmlLoader.load(getClass().getResource("/com/example/dictionary/SelectDifficulty.fxml"));
+
+			Scene scene = new Scene(root);
+			primaryStage.setScene(scene);
+		} catch (IOException e) {
+			e.printStackTrace();  // Print the IOException
+		} catch (Exception e) {
+			// Catch any other exception during FXMLLoader.load() or controller initialization
+			e.printStackTrace();
+		}
 
 	}
 

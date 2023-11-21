@@ -6,7 +6,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="280.0" prefWidth="500.0" style="-fx-background-color: yellow;" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.application.SelectDifficultyController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="280.0" prefWidth="500.0" style="-fx-background-color: yellow;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.application.SelectDifficultyController">
    <children>
       <Label layoutX="145.0" layoutY="54.0" text="Please select the level of difficulty." />
       <HBox layoutX="120.0" layoutY="146.0" prefHeight="61.0" prefWidth="254.0">

@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="280.0" prefWidth="500.0" style="-fx-background-color: yellow;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.application.SelectWordsController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="280.0" prefWidth="500.0" style="-fx-background-color: yellow;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.application.SelectWordsController">
    <children>
       <Label layoutX="74.0" layoutY="55.0" text="Please select which mode you wish to choose words by," />
       <RadioButton fx:id="sequentialButton" layoutX="116.0" layoutY="111.0" selected="true" text="Sequential">

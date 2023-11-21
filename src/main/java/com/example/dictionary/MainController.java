@@ -41,8 +41,6 @@ public class MainController extends DictionaryManager implements Initializable  
     @FXML
     protected Button editButton;
     @FXML
-    protected Button removeButton;
-    @FXML
     protected HTMLEditor editDefinition;
     @FXML
     protected ListView<String> listView;
@@ -158,7 +156,9 @@ public class MainController extends DictionaryManager implements Initializable  
 
     private void setSearchListViewItem() {
         searchList.clear();
+
         if (searchField.getText().equals("")) {
+
             searchWordTemp.clear();
             searchWordTemp.addAll(getCurrentDic().getVocab());
         }
@@ -194,7 +194,7 @@ public class MainController extends DictionaryManager implements Initializable  
             return;
         }
         isOnEditDefinition = true;
-        //saveChangeButton.setVisible(true);
+
         editDefinition.setVisible(true);
         int index = Collections.binarySearch(getCurrentDic().getVocab(), new Word(spelling, null));
         String meaning = getCurrentDic().getVocab().get(index).getDef();
@@ -204,6 +204,7 @@ public class MainController extends DictionaryManager implements Initializable  
 
     @FXML
     public void showDefinition() {
+
         String spelling = listView.getSelectionModel().getSelectedItem();
         if (spelling == null) {
             return;

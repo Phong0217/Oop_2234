@@ -30,10 +30,7 @@ public class Dictionary extends Application {
     protected TextField searchField;
     private Map<String, Word> data = new HashMap<>();
 
-    @FXML
-    protected ListView<String> listView;
-    @FXML
-    protected WebView definitionView;
+
 
     @Override
     public void start(Stage primaryStage) {
