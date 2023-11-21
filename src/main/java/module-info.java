@@ -5,11 +5,11 @@ module com.example.dictionary {
     requires com.dlsc.formsfx;
     requires javafx.web;
     requires java.sql;
-    requires jfoenix;
     requires freetts;
     requires jsapi;
     requires controlsfx;
     requires jlayer;
+    requires com.jfoenix;
 
 
     opens com.example.dictionary to javafx.fxml;
