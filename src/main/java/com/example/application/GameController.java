@@ -1,8 +1,10 @@
 package com.example.application;
 
+import com.example.dictionary.TranslateAPI;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -136,6 +138,8 @@ public class GameController {
 	private Label endMessage;// used when game is finished and ended.
 	@FXML
 	private Label incorrectLetters;//tells user which letters are incorrect
+	@FXML
+	private Label HintMessage;
 
 	// Navigation
 	@FXML
@@ -150,6 +154,10 @@ public class GameController {
 	Button resumeButton;
 	@FXML
 	Button newHangmanGame;
+	@FXML
+	Button backtoDicButton;
+	@FXML
+	Button getHint;
 	@FXML
 	private Button playAgain;
 
@@ -210,7 +218,7 @@ public class GameController {
 		for (int i = 0; i < gWord.length(); i++) {
 			String tempChar = ""; // store letter
 			tempChar += gWord.charAt(i);// store char in String
-			
+
 			if (i == 0) {
 				lab1.setText(tempChar);
 			} else if (i == 1) {
@@ -243,7 +251,7 @@ public class GameController {
 			endMessage.setText(" "); // keep end message blank
 			incorrectLetters.setText(" "); // keep incorrectLetters blank
 			newGame.setDifficultyLevel(SelectDifficultyController.difficultyLevel);
-			
+
 			//clearing arrayLists
 			temp.clear();
 			temp2.clear();
@@ -297,6 +305,13 @@ public class GameController {
 		}
 
 	}
+	@FXML
+	private void getHintonAction(ActionEvent event) throws IOException {
+		if (event.getSource() == getHint) {
+			HintMessage.setText("the Vietnamese\n meaning is:" + "\n" + TranslateAPI.googleTranslate("en","vi",newGame.getGameWord()));
+			getHint.setVisible(false);
+		}
+	}
 
 	@FXML
 	public void chooseLetter(ActionEvent event) {
@@ -308,7 +323,6 @@ public class GameController {
 		// temp word variables
 		int gWordLength = newGame.getGameWord().length();
 		String gWord = newGame.getGameWord();
-
 		temp.add(String.valueOf(selectedLetter));// for userInput Array
 		newGame.setUserInput(temp);
 
@@ -335,7 +349,7 @@ public class GameController {
 			temp3 = newGame.getIncorrectInput();
 			temp3.add(String.valueOf(selectedLetter));
 			newGame.setIncorrectInput(temp3);
-			
+
 			if (newGame.getLifeCount() == 8) {
 				bottomStand.setVisible(true);
 				verticalStand.setVisible(true);
@@ -372,9 +386,9 @@ public class GameController {
 				newGame.updateLifeCount();
 				lifeCount.setText(String.valueOf(newGame.getLifeCount()));
 			}
-			
+
 			incorrectLetters.setText("Incorrect Letters: " + newGame.getIncorrectInput().toString() );
-			
+
 		}
 
 		// to check if the game has ended
@@ -384,7 +398,7 @@ public class GameController {
 
 			// winning scenario
 			if (newGame.getLengthCheck() == newGame.getDifficultyLevel()) {
-				endMessage.setText("You win the word was " + newGame.getGameWord());
+				endMessage.setText("You win. The word was " + newGame.getGameWord());
 				playAgain.setVisible(true);
 
 				// Making all letters invisible and disabled for Play Again
@@ -394,7 +408,7 @@ public class GameController {
 			}
 
 			if (newGame.getLifeCount() == 0) {// use all lives
-				endMessage.setText("You lose the word was " + newGame.getGameWord());
+				endMessage.setText("You lose. The word was " + newGame.getGameWord());
 				playAgain.setVisible(true);
 				// Making all letters invisible and disabled for Play Again
 				for (int i = 0; i < alphabet.length; i++) {
@@ -438,6 +452,23 @@ public class GameController {
 			secondaryStage.show();
 		}
 	}
+	@FXML
+	private void backtoDicButtonAction(ActionEvent event) throws IOException {
+		Parent backtoDicMode = FXMLLoader.load(getClass().getResource("/com/example/dictionary/main.fxml"));
+		Scene backtoDicMode_scene = new Scene(backtoDicMode);
+
+		Stage backtoDicMode_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+		backtoDicMode_stage.setScene(backtoDicMode_scene);
+		backtoDicMode_stage.show();
+	}
+	/** @FXML
+	private void getHintonAction(ActionEvent event) throws IOException {
+		if (event.getSource() == getHint) {
+			HintMessage.setText(newGame.getGameWord());
+			getHint.setVisible(false);
+		}
+	} */
 
 	public void resumeGame(ActionEvent event) {
 		System.out.println(newGame.getGameWord());
@@ -559,15 +590,15 @@ public class GameController {
 				leftLeg.setVisible(true);
 				endMessage.setText("You lose the word was " + newGame.getGameWord());
 			}
-			
+
 			//checking if a winning game was saved
 			if(newGame.getLengthCheck() == newGame.getGameWord().length()){
 				endMessage.setText("You win the word was " + newGame.getGameWord());
-				
+
 				for(int i = 0; i < alphabet.length; i++){
 					alphabet[i].setVisible(false);
 				}
-				
+
 			}
 
 			// setting labels containing word letters invisible
@@ -604,7 +635,7 @@ public class GameController {
 					}
 				}
 			}
-			
+
 			incorrectLetters.setText("Incorrect Letters: " + newGame.getIncorrectInput().toString() );
 		}
 		resumeButton.setVisible(false); // not needed after method has been run

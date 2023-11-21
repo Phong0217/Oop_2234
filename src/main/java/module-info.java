@@ -5,7 +5,7 @@ module com.example.dictionary {
     requires com.dlsc.formsfx;
     requires javafx.web;
     requires java.sql;
-    requires com.jfoenix;
+    requires jfoenix;
     requires freetts;
     requires jsapi;
     requires controlsfx;
