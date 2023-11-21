@@ -64,7 +64,7 @@ public class SelectDifficultyController implements Initializable{
 			// get reference to the button's stage
 			secondaryStage = (Stage) nextButton.getScene().getWindow();
 			// load up  FXML document
-			root2 = FXMLLoader.load(getClass().getResource("../../../../resources/com/example/dictionary/TheGame.fxml"));
+			root2 = FXMLLoader.load(getClass().getResource("/com/example/dictionary/TheGame.fxml"));
 			// create a new scene with root and set the stage
 			Scene scene2 = new Scene(root2);
 			secondaryStage.setScene(scene2);
@@ -74,7 +74,7 @@ public class SelectDifficultyController implements Initializable{
 				// get reference to the button's stage
 				secondaryStage = (Stage) backButton.getScene().getWindow();
 				// load up  FXML document
-				root2 = FXMLLoader.load(getClass().getResource("../../../../resources/com/example/dictionary/SelectWords.fxml"));
+				root2 = FXMLLoader.load(getClass().getResource("/com/example/dictionary/SelectWords.fxml"));
 				// create a new scene with root and set the stage
 				Scene scene2 = new Scene(root2);
 				secondaryStage.setScene(scene2);

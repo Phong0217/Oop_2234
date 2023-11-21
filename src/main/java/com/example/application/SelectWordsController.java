@@ -80,7 +80,7 @@ public class SelectWordsController implements Initializable {
 		// get reference to the button's stage
 		secondaryStage = (Stage) nextButton.getScene().getWindow();
 		// load up FXML document
-		root2 = FXMLLoader.load(getClass().getResource("../../../../resources/com/example/dictionary/SelectDifficulty.fxml"));
+		root2 = FXMLLoader.load(getClass().getResource("/com/example/dictionary/SelectDifficulty.fxml"));
 		// create a new scene with root and set the stage
 		Scene scene2 = new Scene(root2);
 		secondaryStage.setScene(scene2);
