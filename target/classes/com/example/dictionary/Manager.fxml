@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXDrawer?>
+<?import com.jfoenix.controls.JFXHamburger?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.web.HTMLEditor?>
+<?import javafx.scene.web.WebView?>
+
+<BorderPane prefHeight="500.0" prefWidth="974.0" style="-fx-background-color: #9ccede;" stylesheets="@../Style/manager.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dictionary.ManagerController">
+    <top>
+        <AnchorPane prefHeight="50.0" prefWidth="800.0" style="-fx-background-color: #ee4d2d;" BorderPane.alignment="CENTER">
+            <JFXHamburger fx:id="hamburger" layoutX="30.0" layoutY="15.0" />
+            <Text fill="WHITE" layoutX="343.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Manage Word">
+                <font>
+                    <Font name="Product Sans Bold" size="18.0" />
+                </font>
+            </Text>
+        </AnchorPane>
+    </top>
+    <left>
+        <Pane opacity="0.78" prefHeight="431.0" prefWidth="326.0" BorderPane.alignment="CENTER">
+            <ImageView fitHeight="219.0" fitWidth="238.0" layoutX="55.0" layoutY="95.0" pickOnBounds="true" preserveRatio="true">
+                <Image url="@../photo/tudien.png" />
+            </ImageView>
+            <JFXDrawer fx:id="drawer" defaultDrawerSize="300.0" direction="RIGHT" layoutX="51.0" layoutY="2.0" prefHeight="446.0" prefWidth="235.0" />
+        </Pane>
+    </left>
+    <center>
+        <AnchorPane prefHeight="400" prefWidth="500" styleClass="second-color" stylesheets="@../Style/manager.css">
+            <children>
+                <VBox layoutX="-1.0" prefHeight="450.0" prefWidth="467.0" styleClass="second-color" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-1.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <children>
+                        <TabPane prefHeight="440.0" prefWidth="649.0" styleClass="second-color" tabClosingPolicy="UNAVAILABLE">
+                            <tabs>
+                                <Tab styleClass="text-header" text="Thêm từ">
+                                    <content>
+                                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: white;">
+                                            <children>
+                                                <VBox prefHeight="430.0" prefWidth="645.0">
+                                                    <children>
+                                                        <AnchorPane prefHeight="452.0" prefWidth="578.0" styleClass="second-color">
+                                                            <children>
+                                                                <Label layoutX="87.0" layoutY="34.0" styleClass="text-label" text="Từ điển" />
+                                                                <RadioButton fx:id="addEV" layoutX="87.0" layoutY="68.0" mnemonicParsing="false" text="Anh - Việt">
+                                                                    <toggleGroup>
+                                                                        <ToggleGroup fx:id="data1" />
+                                                                    </toggleGroup>
+                                                                </RadioButton>
+                                                                <RadioButton fx:id="addVE" layoutX="213.0" layoutY="67.0" mnemonicParsing="false" text="Việt - Anh" toggleGroup="$data1">
+                                                                </RadioButton>
+                                                                <Label layoutX="387.0" layoutY="34.0" prefHeight="25.0" prefWidth="66.0" styleClass="text-label" text="Từ vựng" />
+                                                                <TextField fx:id="addText" layoutX="387.0" layoutY="58.0" prefHeight="37.0" prefWidth="178.0" />
+                                                                <Button ellipsisString="" layoutX="566.0" layoutY="59.0" mnemonicParsing="false" onAction="#handleClickArrow" prefHeight="35.0" prefWidth="28.0" styleClass="button-arrow" />
+                                                                <HBox alignment="CENTER_RIGHT" layoutX="490.0" layoutY="96.0" prefHeight="39.0" prefWidth="103.0">
+                                                                    <children>
+                                                                        <Button contentDisplay="CENTER" mnemonicParsing="false" onAction="#add" prefHeight="28.0" prefWidth="38.0" styleClass="button-save" textFill="#4d99f5">
+                                                                            <font>
+                                                                                <Font size="7.0" />
+                                                                            </font>
+                                                                        </Button>
+                                                                        <Button contentDisplay="CENTER" mnemonicParsing="false" onAction="#addReset" prefHeight="31.0" prefWidth="33.0" styleClass="button-reset" textFill="#8e9297">
+                                                                            <font>
+                                                                                <Font size="7.0" />
+                                                                            </font>
+                                                                        </Button>
+                                                                    </children>
+                                                                </HBox>
+                                                                <AnchorPane layoutX="38.0" layoutY="142.0" prefHeight="231.0" prefWidth="554.0">
+                                                                    <children>
+                                                                        <WebView layoutX="-36.0" layoutY="-2.0" prefHeight="234.0" prefWidth="589.0" />
+                                                                        <HTMLEditor fx:id="addEditor" htmlText="&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body contenteditable=&quot;true&quot;&gt;&lt;/body&gt;&lt;/html&gt;" layoutX="-31.0" layoutY="2.0" prefHeight="227.0" prefWidth="582.0" />
+                                                                    </children>
+                                                                </AnchorPane>
+                                                            </children>
+                                                        </AnchorPane>
+                                                    </children>
+                                                </VBox>
+                                            </children>
+                                        </HBox>
+                                    </content>
+                                </Tab>
+                                <Tab styleClass="text-header" text="Sửa, xóa từ vựng">
+                                    <content>
+                                        <HBox alignment="CENTER" prefHeight="422.0" prefWidth="679.0" style="-fx-background-color: white;">
+                                            <children>
+                                                <VBox prefHeight="422.0" prefWidth="650.0">
+                                                    <children>
+                                                        <AnchorPane prefHeight="420.0" prefWidth="702.0" styleClass="second-color">
+                                                            <children>
+                                                                <Label layoutX="86.0" layoutY="29.0" styleClass="text-label" text="Từ điển" />
+                                                                <RadioButton fx:id="editEV" layoutX="86.0" layoutY="66.0" mnemonicParsing="false" onAction="#handleClickEVButton" text="Anh - Việt">
+                                                                    <toggleGroup>
+                                                                        <ToggleGroup fx:id="data2" />
+                                                                    </toggleGroup>
+                                                                </RadioButton>
+                                                                <RadioButton fx:id="editVE" layoutX="227.0" layoutY="66.0" mnemonicParsing="false" onAction="#handleClickVEButton" text="Việt - Anh" toggleGroup="$data2">
+                                                                </RadioButton>
+                                                                <Label layoutX="392.0" layoutY="29.0" prefHeight="25.0" prefWidth="66.0" styleClass="text-label" text="Từ vựng" />
+                                                                <TextField fx:id="editTextVE" layoutX="392.0" layoutY="58.0" prefHeight="37.0" prefWidth="166.0" styleClass="text-field-edit" />
+                                                                <TextField fx:id="editTextEV" layoutX="392.0" layoutY="57.0" prefHeight="37.0" prefWidth="166.0" styleClass="text-field-edit" />
+                                                                <Button ellipsisString="" layoutX="558.0" layoutY="58.0" mnemonicParsing="false" onAction="#handleClickEditArrow" prefHeight="36.0" prefWidth="35.0" styleClass="button-arrow" />
+                                                                <HBox alignment="CENTER_RIGHT" layoutX="340.0" layoutY="94.0" prefHeight="39.0" prefWidth="103.0" />
+                                                                <AnchorPane layoutX="4.0" layoutY="131.0" prefHeight="271.0" prefWidth="642.0">
+                                                                    <children>
+                                                                        <WebView fx:id="web" layoutX="-13.0" layoutY="-26.0" prefHeight="282.0" prefWidth="642.0" />
+                                                                        <HTMLEditor fx:id="edit" htmlText="&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body contenteditable=&quot;true&quot;&gt;&lt;/body&gt;&lt;/html&gt;" layoutX="-4.0" layoutY="-26.0" prefHeight="281.0" prefWidth="634.0" />
+                                                                    </children>
+                                                                </AnchorPane>
+                                                                <Button contentDisplay="CENTER" layoutX="593.0" layoutY="14.0" mnemonicParsing="false" onAction="#remove" prefHeight="30.0" prefWidth="35.0" styleClass="button-remove" textFill="#8e9297">
+                                                                    <font>
+                                                                        <Font size="7.0" />
+                                                                    </font>
+                                                                </Button>
+                                                                <Button contentDisplay="CENTER" layoutX="540.0" layoutY="13.0" mnemonicParsing="false" onAction="#save" prefHeight="30.0" prefWidth="33.0" styleClass="button-save" textFill="#4d99f5">
+                                                                    <font>
+                                                                        <Font size="7.0" />
+                                                                    </font>
+                                                                </Button>
+                                                            </children>
+                                                        </AnchorPane>
+                                                    </children>
+                                                </VBox>
+                                            </children>
+                                        </HBox>
+                                    </content>
+                                </Tab>
+                            </tabs>
+                        </TabPane>
+                    </children>
+                </VBox>
+            </children>
+        </AnchorPane>
+    </center>
+</BorderPane>
