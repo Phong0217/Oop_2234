@@ -38,7 +38,7 @@ Game mode will give a Vietnamese meaning and players will have to fill in the le
 ## Demo
 ![Demo](
    + Link Demo : https://drive.google.com/file/d/1FyRN0yOuqxFzXSjvzYIYk1Zq4N7tMjpn/view?usp=sharing
-
+   + Link youtube : https://www.youtube.com/watch?v=UWFDAIkk4r4
 ## Future improvements
 1. Add more dictionaries.
 2. Add more complex games.
