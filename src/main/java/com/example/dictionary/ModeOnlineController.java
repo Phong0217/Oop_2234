@@ -32,7 +32,7 @@ public class ModeOnlineController extends DictionaryManager implements Initializ
     @FXML
     protected TextField enWord;
     @FXML
-    protected WebView viWord;
+    protected WebView definitionView;
     @FXML
     protected RadioButton EnToVi;
     @FXML
@@ -61,7 +61,7 @@ public class ModeOnlineController extends DictionaryManager implements Initializ
                 enWord.setVisible(true);
                 EnToVi.setSelected(true);
                 ViToEn.setSelected(true);
-                viWord.setVisible(true);
+                definitionView.setVisible(true);
 
             });
         } catch (IOException ex) {
@@ -100,13 +100,13 @@ public class ModeOnlineController extends DictionaryManager implements Initializ
          String text = enWord.getText();
          if (EnToVi.isSelected()) {
              try {
-                 viWord.getEngine().loadContent(TranslateAPI.googleTranslate("en", "vi", text));
+                 definitionView.getEngine().loadContent(TranslateAPI.googleTranslate("en", "vi", text));
              } catch (IOException e) {
                  e.printStackTrace();
              }
          } else {
              try {
-                 viWord.getEngine().loadContent(TranslateAPI.googleTranslate("vi", "en", text));
+                 definitionView.getEngine().loadContent(TranslateAPI.googleTranslate("vi", "en", text));
              } catch (IOException e) {
                  e.printStackTrace();
              }

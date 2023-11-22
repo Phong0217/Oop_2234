@@ -13,26 +13,27 @@ The application is designed to support learning English. The application is writ
 2. Open the project in the IDE.
 3. Run the project.
 4. If you want to change the data, you can change the E_V.txt and V_E.txt files.
-
+5. The application can look up words and paragraphs using Google's translate API.
+6. The application has a game to review words, the application will let users choose the level of sentences, and will indicate the Vietnamese meaning of the word and the user's task is to fill in the letters of that word.
 ## Usage
-1. Select mode: English-Vietnamese or Vietnamese-English to choose the dictionary.
-2. Search for a word in the dictionary and click the Search button, then the right side of the window will display the meaning of the word.
-3. To add a new word, click the Add button (Plus icon).
-4. To delete a word, click the Delete button (Minus icon).
-5. To edit a word, click the Edit button (Pencil icon).
-6. To save the changes, click the Save button (Disk icon).
-7. To pronounce the word, click the Pronounce button (Speaker icon).
-8. To practice, click the Practice button (Play icon), then the application will display a Game window.
-   + In the Game window, click the Start button to start the game.
-   + The application will display a word that is removed some letters, you need to enter the missing letters in the text box and click the Check button to check the answer.
-   + If the answer is correct, the application will display a new word and increase the score by 1.
-   + If the answer is incorrect, the application will display a new word and decrease the score by 1.
-   + To exit the game, click the Exit button (Cross icon).
-   + To play again, click the Play again button (Play icon).
-   + To save the score, click the Save button (Disk icon).
-   + To load the score, click the Load button (Folder icon).
-   + To reset the score, click the Reset button (Reset icon).
-9. To exit the application, click the Exit button (Cross icon).
+The application has different modes: 
+   + Search from offline using data words from 2 files E_V and V_E.txt to look up. 
+   + Search online uses google's translation API, which can make lookups and paragraphs longer and more common. 
+   + In Edit mode, delete words in Word manager mode, users can edit words through buttons. 
+Game mode will give a Vietnamese meaning and players will have to fill in the letters of that word through the buttons on the screen.
+1. Select mode: search offline, search online, game, about.
+2. In Search Online Mode, search for a word in the dictionary, then the right side of the window will display the meaning of the word.
+3. To edit a word, click the Edit button (Pencil icon).
+4. To save the changes, click the Save button (Disk icon).
+5. To pronounce the word, click the Pronounce button (Speaker icon).
+6. To practice, click the Practice button (Play icon), then the application will display a Game window.
+   + In the Game window, click the Start button to submit, then click Next button to open Level Select button, then click Button next to open game.
+   + In the Game window, display letter buttons for user click when user click playGame Button then The game starts running.
+   + In the Game window, Users can press the Hint button to see the meaning of the given word and their task is to click on the letter button to select the appropriate letters for that word.
+   + To save the score, click the Save button .
+   + To load the score, click the Load button .
+   + To reset the score, click the Reset button .
+7. To exit the application, click the Exit button .
 
 ## Demo
 ![Demo](

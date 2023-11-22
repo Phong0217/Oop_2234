@@ -3,20 +3,30 @@ package com.example.dictionary;
 import com.jfoenix.controls.JFXDrawer;
 import com.jfoenix.controls.JFXHamburger;
 import com.jfoenix.transitions.hamburger.HamburgerBackArrowBasicTransition;
+import java.io.IOException;
+import java.net.URL;
+
+
+import java.sql.SQLException;
+import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+import javafx.event.ActionEvent;
+import javafx.beans.binding.Bindings;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.scene.web.HTMLEditor;
 import javafx.scene.web.WebView;
 
-import java.io.IOException;
-import java.net.URL;
-import java.util.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import org.controlsfx.control.textfield.TextFields;
+
+import javax.speech.VocabManager;
 
 public class ManagerController extends DictionaryManager implements Initializable {
     public ToggleGroup data2;
@@ -209,15 +219,15 @@ public class ManagerController extends DictionaryManager implements Initializabl
     }
 
     private void showDefinition() {
-            String a;
-            if (editEV.isSelected()) {
-                a = editTextEV.getText();
-            } else {
-                a = editTextVE.getText();
-            }
-            int index = Collections.binarySearch(getDictionary().getVocab(), new Word(a, null));
-            String b = getDictionary().getVocab().get(index).getDef();
-            web.getEngine().loadContent(b, "text/html");
+        String a;
+        if (editEV.isSelected()) {
+            a = editTextEV.getText();
+        } else {
+            a = editTextVE.getText();
+        }
+        int index = Collections.binarySearch(getDictionary().getVocab(), new Word(a, null));
+        String b = getDictionary().getVocab().get(index).getDef();
+        web.getEngine().loadContent(b, "text/html");
 
     }
 
